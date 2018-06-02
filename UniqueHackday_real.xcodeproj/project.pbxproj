@@ -33,6 +33,7 @@
 		E20AA44C20C2EB3F00839069 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20AA44B20C2EB3F00839069 /* LoginController.m */; };
 		E20AA44F20C2EB5500839069 /* RegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20AA44E20C2EB5500839069 /* RegisterController.m */; };
 		E20AA45220C2F80000839069 /* UIResponder+FirstResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = E20AA45120C2F80000839069 /* UIResponder+FirstResponder.m */; };
+		E20AA45620C309D500839069 /* NetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E20AA45520C309D500839069 /* NetworkTool.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +107,8 @@
 		E20AA44E20C2EB5500839069 /* RegisterController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterController.m; sourceTree = "<group>"; };
 		E20AA45020C2F80000839069 /* UIResponder+FirstResponder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIResponder+FirstResponder.h"; sourceTree = "<group>"; };
 		E20AA45120C2F80000839069 /* UIResponder+FirstResponder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+FirstResponder.m"; sourceTree = "<group>"; };
+		E20AA45420C309D500839069 /* NetworkTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkTool.h; sourceTree = "<group>"; };
+		E20AA45520C309D500839069 /* NetworkTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkTool.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,26 +165,6 @@
 				E20AA43A20C2E9F500839069 /* Model */,
 				E20AA43B20C2E9FC00839069 /* View */,
 				E20AA43C20C2EA0000839069 /* Controller */,
-				0872F70E20C2E591005B0C21 /* DataBase.h */,
-				0872F70F20C2E591005B0C21 /* DataBase.m */,
-				0872F71120C2E5CC005B0C21 /* Major.h */,
-				0872F71220C2E5CC005B0C21 /* Major.m */,
-				0872F71420C2E5E4005B0C21 /* User.h */,
-				0872F71520C2E5E4005B0C21 /* User.m */,
-				0872F71720C2E601005B0C21 /* MajorInfo.h */,
-				0872F71820C2E601005B0C21 /* MajorInfo.m */,
-				0872F71A20C2E622005B0C21 /* Employment.h */,
-				0872F71B20C2E622005B0C21 /* Employment.m */,
-				0872F71D20C2E637005B0C21 /* Knowledge.h */,
-				0872F71E20C2E637005B0C21 /* Knowledge.m */,
-				0872F72020C2E64B005B0C21 /* Skill.h */,
-				0872F72120C2E64B005B0C21 /* Skill.m */,
-				0872F72320C2E668005B0C21 /* Chance.h */,
-				0872F72420C2E668005B0C21 /* Chance.m */,
-				0872F72620C2E678005B0C21 /* Article.h */,
-				0872F72720C2E678005B0C21 /* Article.m */,
-				0872F72920C2E689005B0C21 /* Company.h */,
-				0872F72A20C2E689005B0C21 /* Company.m */,
 				0872F6DC20C2E484005B0C21 /* AppDelegate.h */,
 				0872F6DD20C2E484005B0C21 /* AppDelegate.m */,
 				0872F6DF20C2E484005B0C21 /* ViewController.h */,
@@ -235,6 +218,25 @@
 		E20AA43A20C2E9F500839069 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E20AA45320C309BF00839069 /* Tool */,
+				0872F71120C2E5CC005B0C21 /* Major.h */,
+				0872F71220C2E5CC005B0C21 /* Major.m */,
+				0872F71420C2E5E4005B0C21 /* User.h */,
+				0872F71520C2E5E4005B0C21 /* User.m */,
+				0872F71720C2E601005B0C21 /* MajorInfo.h */,
+				0872F71820C2E601005B0C21 /* MajorInfo.m */,
+				0872F71A20C2E622005B0C21 /* Employment.h */,
+				0872F71B20C2E622005B0C21 /* Employment.m */,
+				0872F71D20C2E637005B0C21 /* Knowledge.h */,
+				0872F71E20C2E637005B0C21 /* Knowledge.m */,
+				0872F72020C2E64B005B0C21 /* Skill.h */,
+				0872F72120C2E64B005B0C21 /* Skill.m */,
+				0872F72320C2E668005B0C21 /* Chance.h */,
+				0872F72420C2E668005B0C21 /* Chance.m */,
+				0872F72620C2E678005B0C21 /* Article.h */,
+				0872F72720C2E678005B0C21 /* Article.m */,
+				0872F72920C2E689005B0C21 /* Company.h */,
+				0872F72A20C2E689005B0C21 /* Company.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -271,6 +273,17 @@
 				E20AA44E20C2EB5500839069 /* RegisterController.m */,
 			);
 			path = "Login&Reg";
+			sourceTree = "<group>";
+		};
+		E20AA45320C309BF00839069 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				0872F70E20C2E591005B0C21 /* DataBase.h */,
+				0872F70F20C2E591005B0C21 /* DataBase.m */,
+				E20AA45420C309D500839069 /* NetworkTool.h */,
+				E20AA45520C309D500839069 /* NetworkTool.m */,
+			);
+			path = Tool;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -474,6 +487,7 @@
 				0872F72820C2E678005B0C21 /* Article.m in Sources */,
 				0872F72220C2E64B005B0C21 /* Skill.m in Sources */,
 				0872F72B20C2E689005B0C21 /* Company.m in Sources */,
+				E20AA45620C309D500839069 /* NetworkTool.m in Sources */,
 				0872F6DE20C2E484005B0C21 /* AppDelegate.m in Sources */,
 				E20AA44820C2EB1500839069 /* MeController.m in Sources */,
 				E20AA45220C2F80000839069 /* UIResponder+FirstResponder.m in Sources */,
