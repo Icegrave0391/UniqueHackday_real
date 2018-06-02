@@ -12,7 +12,7 @@
 #import "Knowledge.h"
 #import "Skill.h"
 @interface Major : NSObject
-
+@property(nonatomic, assign)NSInteger ID ;
 @property(nonatomic, strong)NSString * majorName ;
 @property(nonatomic, strong)MajorInfo * majorInfo ;
 @property(nonatomic, strong)Employment * employment ;

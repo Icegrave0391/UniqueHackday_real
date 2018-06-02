@@ -11,6 +11,7 @@
 @interface Chance : NSObject
 
 @property(nonatomic, strong)NSString *content ;
+@property(nonatomic, strong)NSDate * time ;
 
 @end
 
