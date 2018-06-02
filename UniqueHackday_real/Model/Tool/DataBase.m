@@ -38,13 +38,13 @@ static DataBase *tool;
         //majorInfo
         NSString * majorInfoSql = @"CREATE TABLE IF NOT EXISTS 'majorInfo' ('id' INTEGER NOT NULL ,'majorName' VARCHAR(255),'definition' TEXT,'direction' TEXT,'knowledge' TEXT, 'skill' TEXT,'subject' TEXT) ";
         //companyInfo
-        NSString * companySql = @"CREATE TABLE IF NOT EXISTS 'companyInfo' ('companyid' INTEGER NOT NULL ,'companyName' VARCHAR(255),'companyInfo' TEXT) ";
+        NSString * companySql = @"CREATE TABLE IF NOT EXISTS 'companyInfo' ('companyid' INTEGER NOT NULL,'companyName' VARCHAR(255),'companyInfo' TEXT) ";
         //chance
-        NSString * chanceSql = @"CREATE TABLE IF NOT EXISTS 'chance' ('companyid' INTEGER NOT NULL ,'content' TEXT,'time' DATETIME) ";
+        NSString * chanceSql = @"CREATE TABLE IF NOT EXISTS 'chance' ('companyid' INTEGER NOT NULL,'content' TEXT,'time' DATETIME) ";
         //article
-        NSString * articleSql = @"CREATE TABLE IF NOT EXISTS 'article' ('id' INTEGER NOT NULL ,'type' VARCHAR(255),'content' TEXT,'time' DATETIME,'image' BLOB) ";
+        NSString * articleSql = @"CREATE TABLE IF NOT EXISTS 'article' ('id' INTEGER NOT NULL,'type' VARCHAR(255),'content' TEXT,'time' DATETIME,'image' BLOB) ";
         //user
-        NSString * userSql = @"CREATE TABLE IF NOT EXISTS 'user' ('id' INTEGER NOT NULL ,'username' VARCHAR(255),'password' TEXT) ";
+        NSString * userSql = @"CREATE TABLE IF NOT EXISTS 'user' ('id' INTEGER NOT NULL,'username' VARCHAR(255),'password' TEXT) ";
         [db executeUpdate:majorInfoSql] ;
         [db executeUpdate:companySql] ;
         [db executeUpdate:chanceSql] ;
@@ -103,18 +103,23 @@ static DataBase *tool;
             company.companyID = [companySet intForColumn:@"companyid"] ;
             company.companyName = [companySet stringForColumn:@"companyName"] ;
             company.companyInfo = [companySet stringForColumn:@"companyInfo"] ;
+            
+            [[User sharedUser].major.employment.companyArr addObject:company] ;
+        }
+        for(Company * company in [User sharedUser].major.employment.companyArr){
+            int i = 0 ;
             //company -> chanceArr
-            chanceSet = [db executeQuery:@"SELECT * FROM chance where companyid = ?",company.companyID] ;
+            chanceSet = [db executeQuery:@"SELECT * FROM chance where companyid = ? order by time desc",company.companyID] ;
             while ([chanceSet next]) {
                 Chance * chance = [[Chance alloc] init] ;
                 chance.content = [chanceSet stringForColumn:@"content"] ;
                 chance.time = [chanceSet dateForColumn:@"time"] ;
-                [company.chanceArr addObject:chance] ;
+                [((Company *)[User sharedUser].major.employment.companyArr[i]).chanceArr addObject:chance] ;
             }
-            [[User sharedUser].major.employment.companyArr addObject:company] ;
+            i++ ;
         }
         //employment -> newsArr
-        articleSet = [db executeQuery:@"SELECT * FROM article where type = ?",@"employmentNewsType"] ;
+        articleSet = [db executeQuery:@"SELECT * FROM article where type = ? order by time desc",@"employmentNewsType"] ;
         while ([articleSet next]) {
             Article * article = [[Article alloc] init] ;
             article.time = [articleSet dateForColumn:@"time"] ;
@@ -124,7 +129,7 @@ static DataBase *tool;
             [[User sharedUser].major.employment.newsArr addObject:article] ;
         }
         //employment -> webArr
-        webArticleSet = [db executeQuery:@"SELECT * FROM article where type = ?",@"employmentWebType"] ;
+        webArticleSet = [db executeQuery:@"SELECT * FROM article where type = ? order by time desc",@"employmentWebType"] ;
         while ([webArticleSet next]) {
             Article * article = [[Article alloc] init] ;
             article.time = [webArticleSet dateForColumn:@"time"] ;
@@ -134,7 +139,7 @@ static DataBase *tool;
             [[User sharedUser].major.employment.webArr addObject:article] ;
         }
         //knowledge -> courseArr(Major
-        knowledgeMajorCourseArrSet = [db executeQuery:@"SELECT * FROM article where type = ?",@"knowledgeMajorCourseType"] ;
+        knowledgeMajorCourseArrSet = [db executeQuery:@"SELECT * FROM article where type = ? order by time desc",@"knowledgeMajorCourseType"] ;
         while ([knowledgeMajorCourseArrSet next]) {
             Article * article = [[Article alloc] init] ;
             article.time = [knowledgeMajorCourseArrSet dateForColumn:@"time"] ;
@@ -145,7 +150,7 @@ static DataBase *tool;
         }
 
         //knowledge -> articleArr(Major
-        knowledgeMajorArticleArrSet = [db executeQuery:@"SELECT * FROM article where type = ?",@"knowledgeMajorArticleType"] ;
+        knowledgeMajorArticleArrSet = [db executeQuery:@"SELECT * FROM article where type = ? order by time desc",@"knowledgeMajorArticleType"] ;
         while ([knowledgeMajorArticleArrSet next]) {
             Article * article = [[Article alloc] init] ;
             article.time = [knowledgeMajorArticleArrSet dateForColumn:@"time"] ;
@@ -155,7 +160,7 @@ static DataBase *tool;
             [[User sharedUser].major.knowledge.majorArticleArr addObject:article] ;
         }
         //knowledge -> courseArr(Cross
-        knowledgeCrossCourseArrSet = [db executeQuery:@"SELECT * FROM article where type = ?",@"knowledgeCrossCourseType"] ;
+        knowledgeCrossCourseArrSet = [db executeQuery:@"SELECT * FROM article where type = ? order by time desc",@"knowledgeCrossCourseType"] ;
         while ([knowledgeCrossCourseArrSet next]) {
             Article * article = [[Article alloc] init] ;
             article.time = [knowledgeCrossCourseArrSet dateForColumn:@"time"] ;
@@ -165,7 +170,7 @@ static DataBase *tool;
             [[User sharedUser].major.knowledge.crossCourseArr addObject:article] ;
         }
         //knowledge -> articleArr(Cross
-        knowledgeCrossArticleArrSet = [db executeQuery:@"SELECT * FROM article where type = ?",@"knowledgeCrossArticleType"] ;
+        knowledgeCrossArticleArrSet = [db executeQuery:@"SELECT * FROM article where type = ? order by time desc",@"knowledgeCrossArticleType"] ;
         while ([knowledgeCrossArticleArrSet next]) {
             Article * article = [[Article alloc] init] ;
             article.time = [knowledgeCrossArticleArrSet dateForColumn:@"time"] ;
@@ -176,7 +181,7 @@ static DataBase *tool;
         }
         
         //skill -> majorSkill
-        skillMajorSkillArrSet = [db executeQuery:@"SELECT * FROM article where type = ?",@"majorSkillType"] ;
+        skillMajorSkillArrSet = [db executeQuery:@"SELECT * FROM article where type = ? order by time desc",@"majorSkillType"] ;
         while ([skillMajorSkillArrSet next]) {
             Article * article = [[Article alloc] init] ;
             article.time = [skillMajorSkillArrSet dateForColumn:@"time"] ;
@@ -186,7 +191,7 @@ static DataBase *tool;
             [[User sharedUser].major.skill.majorSkillArr addObject:article] ;
         }
         //skill -> webArr
-        skillWebArrSet = [db executeQuery:@"SELECT * FROM article where type = ?",@"skillWebType"] ;
+        skillWebArrSet = [db executeQuery:@"SELECT * FROM article where type = ? order by time desc",@"skillWebType"] ;
         while ([skillWebArrSet next]) {
             Article * article = [[Article alloc] init] ;
             article.time = [skillWebArrSet dateForColumn:@"time"] ;
@@ -196,7 +201,7 @@ static DataBase *tool;
             [[User sharedUser].major.skill.webArr addObject:article] ;
         }
         //skill -> strategyArr
-        skillStrategyArrSet = [db executeQuery:@"SELECT * FROM article where type = ?",@"skillStrategyType"] ;
+        skillStrategyArrSet = [db executeQuery:@"SELECT * FROM article where type = ? order by time desc",@"skillStrategyType"] ;
         while ([skillStrategyArrSet next]) {
             Article * article = [[Article alloc] init] ;
             article.time = [skillStrategyArrSet dateForColumn:@"time"] ;
@@ -211,7 +216,6 @@ static DataBase *tool;
 - (void)addEmployment:(Company *)company
     andEmploymentNews:(Article *)newsArticle
      andEmploymentWeb:(Article *)webArticle
-      andKnowledgeWeb:(Article *)knoeledgeWebArticle
 andKnowledgeMajorCourse:(Article *)courseMajorArticle
 andKnowledgeMajorArticle:(Article *)knowledgeMajorArticle
 andKnowledgeCrossCourse:(Article *)courseCrossArticle
@@ -221,7 +225,16 @@ andKnowledgeCrossArticle:(Article *)knowledgeCrossArticle
      andSkillStrategy:(Article *)strategyArticle {
     
     [[self getQueue] inDatabase:^(FMDatabase * _Nonnull db) {
-        <#code#>
+        [db executeUpdate:@"INSERT INTO companyInfo(companyid,companyName,companyInfo)VALUES(?,?,?)",@(company.companyID),company.companyName,company.companyInfo] ;
+        [db executeUpdate:@"INSERT INTO article(id,type,content,time,image)VALUES(?,?,?,?,?)",@([User sharedUser].ID),@"employmentNewsType",newsArticle.content,newsArticle.time,UIImageJPEGRepresentation(newsArticle.img, 1)] ;
+        [db executeUpdate:@"INSERT INTO article(id,type,content,time,image)VALUES(?,?,?,?,?)",@([User sharedUser].ID),@"employmentWebType",webArticle.content,webArticle.time,UIImageJPEGRepresentation(webArticle.img, 1)] ;
+        [db executeUpdate:@"INSERT INTO article(id,type,content,time,image)VALUES(?,?,?,?,?)",@([User sharedUser].ID),@"knowledgeMajorCourseType",courseMajorArticle.content,courseMajorArticle.time,UIImageJPEGRepresentation(courseMajorArticle.img, 1)] ;
+        [db executeUpdate:@"INSERT INTO article(id,type,content,time,image)VALUES(?,?,?,?,?)",@([User sharedUser].ID),@"knowledgeMajorArticleType",knowledgeMajorArticle.content,knowledgeMajorArticle.time,UIImageJPEGRepresentation(knowledgeMajorArticle.img, 1)] ;
+        [db executeUpdate:@"INSERT INTO article(id,type,content,time,image)VALUES(?,?,?,?,?)",@([User sharedUser].ID),@"knowledgeCrossCourseType",courseCrossArticle.content,courseCrossArticle.time,UIImageJPEGRepresentation(courseCrossArticle.img, 1)] ;
+        [db executeUpdate:@"INSERT INTO article(id,type,content,time,image)VALUES(?,?,?,?,?)",@([User sharedUser].ID),@"knowledgeCrossArticleType",knowledgeCrossArticle.content,knowledgeCrossArticle.time,UIImageJPEGRepresentation(knowledgeCrossArticle.img, 1)] ;
+        [db executeUpdate:@"INSERT INTO article(id,type,content,time,image)VALUES(?,?,?,?,?)",@([User sharedUser].ID),@"majorSkillType",majorSkillArticle.content,majorSkillArticle.time,UIImageJPEGRepresentation(majorSkillArticle.img, 1)] ;
+        [db executeUpdate:@"INSERT INTO article(id,type,content,time,image)VALUES(?,?,?,?,?)",@([User sharedUser].ID),@"skillWebType",skillWebArticle.content,skillWebArticle.time,UIImageJPEGRepresentation(skillWebArticle.img, 1)] ;
+        [db executeUpdate:@"INSERT INTO article(id,type,content,time,image)VALUES(?,?,?,?,?)",@([User sharedUser].ID),@"skillStrategyType",strategyArticle.content,strategyArticle.time,UIImageJPEGRepresentation(strategyArticle.img, 1)] ;
     }] ;
 }
 

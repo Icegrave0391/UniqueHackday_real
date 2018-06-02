@@ -9,6 +9,12 @@
 #import "LoginController.h"
 #import "UIResponder+FirstResponder.h"
 #import "RegisterController.h"
+#import "DataBase.h"
+#import "Major.h"
+#import "User.h"
+#import "Chance.h"
+#import "Company.h"
+#import "Article.h"
 
 @interface LoginController ()
 
@@ -22,6 +28,50 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSNumber * inte = [NSNumber numberWithInteger:1] ;
+    
+    Company * company =[[Company alloc] init] ;
+    company.companyID = [inte integerValue];
+    company.ID = [inte integerValue] ;
+    company.companyName = @"companyname" ;
+    company.companyInfo = @"info" ;
+    Chance * chance = [[Chance alloc] init] ;
+    chance.content = @"chance content" ;
+    [company.chanceArr addObject:chance] ;
+    
+    Article * employNews = [[Article alloc] init] ;
+    employNews.content = @"employnews" ;
+    employNews.ID = [inte integerValue] ;
+    Article * employWeb = [[Article alloc] init] ;
+    employWeb.content = @"employWeb" ;
+    employWeb.ID = [inte integerValue] ;
+    Article * knowledgeMajorCourse = [[Article alloc] init] ;
+    knowledgeMajorCourse.content = @"majorCourse" ;
+    knowledgeMajorCourse.ID =[inte integerValue] ;
+    Article * MajorArticle = [[Article alloc] init] ;
+    MajorArticle.content = @"majorArticle" ;
+    MajorArticle.ID =[inte integerValue] ;
+    Article * crossCourse = [[Article alloc] init] ;
+    crossCourse.content = @"crossCourse" ;
+    crossCourse.ID = [inte integerValue] ;
+    Article * knowledgeArticle = [[Article alloc] init] ;
+    knowledgeArticle.content = @"knowledgeContent" ;
+    knowledgeArticle.ID = [inte integerValue];
+    Article * skillArticle = [[Article alloc] init] ;
+    skillArticle.content = @"skillArticle" ;
+    skillArticle.ID = [inte integerValue];
+    Article * skillWeb = [[Article alloc] init] ;
+    skillWeb.content = @"skillWeb" ;
+    skillWeb.ID = [inte integerValue];
+    Article * skillStrategy = [[Article alloc] init] ;
+    skillStrategy.content = @"skillStre" ;
+    skillStrategy.ID = [inte integerValue] ;
+    [User sharedUser].ID = [inte integerValue];
+    
+    [[DataBase sharedDB] addEmployment:company andEmploymentNews:employNews andEmploymentWeb:employWeb andKnowledgeMajorCourse:knowledgeMajorCourse andKnowledgeMajorArticle:MajorArticle andKnowledgeCrossCourse:crossCourse andKnowledgeCrossArticle:knowledgeArticle andSkillMajorSkill:skillArticle andSkillWeb:skillWeb andSkillStrategy:skillStrategy] ;
+    [[DataBase sharedDB] getUserAllInfo] ;
+    NSLog(@"%@",[User sharedUser]) ;
+    
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)]];
     UIImageView *back = [[UIImageView alloc] initWithFrame:self.view.frame];

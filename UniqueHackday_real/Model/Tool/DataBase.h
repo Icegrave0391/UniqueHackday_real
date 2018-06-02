@@ -26,7 +26,6 @@
 - (void)addEmployment:(Company *)company
     andEmploymentNews:(Article *)newsArticle
      andEmploymentWeb:(Article *)webArticle
-      andKnowledgeWeb:(Article *)knoeledgeWebArticle
 andKnowledgeMajorCourse:(Article *)courseMajorArticle
 andKnowledgeMajorArticle:(Article *)knowledgeMajorArticle
 andKnowledgeCrossCourse:(Article *)courseCrossArticle

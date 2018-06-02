@@ -9,5 +9,10 @@
 #import "Company.h"
 
 @implementation Company
-
+-(NSMutableArray *)chanceArr{
+    if(!_chanceArr){
+        _chanceArr = [[NSMutableArray alloc] init] ;
+    }
+    return _chanceArr ;
+}
 @end

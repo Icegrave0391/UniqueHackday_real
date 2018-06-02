@@ -9,7 +9,24 @@
 #import "Skill.h"
 
 @implementation Skill
-
+-(NSMutableArray *)majorSkillArr{
+    if(!_majorSkillArr){
+        _majorSkillArr = [[NSMutableArray alloc] init] ;
+    }
+    return _majorSkillArr ;
+}
+-(NSMutableArray *)webArr{
+    if(!_webArr){
+        _webArr = [[NSMutableArray alloc] init] ;
+    }
+    return _webArr ;
+}
+-(NSMutableArray *)strategyArr{
+    if(_strategyArr){
+        _strategyArr = [[NSMutableArray alloc] init] ;
+    }
+    return _strategyArr ;
+}
 @end
 
 

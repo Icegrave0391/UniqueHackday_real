@@ -10,4 +10,11 @@
 
 @implementation MajorInfo
 
+-(NSMutableArray *)relatedArr{
+    if(!_relatedArr){
+        _relatedArr = [[NSMutableArray alloc] init] ;
+    }
+    return _relatedArr ;
+}
+
 @end
