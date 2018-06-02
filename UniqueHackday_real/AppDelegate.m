@@ -37,11 +37,24 @@
     MeController *meCtrl = [[MeController alloc] init];
     
     
-    UINavigationController *KnowledgeNavi = [[UINavigationController alloc] initWithRootViewController:knowledgeCtrl];
+    UINavigationController *knowledgeNavi = [[UINavigationController alloc] initWithRootViewController:knowledgeCtrl];
     UINavigationController *skillNavi = [[UINavigationController alloc] initWithRootViewController:skillCtrl];
     UINavigationController *employmentNavi = [[UINavigationController alloc] initWithRootViewController:employmentCtrl];
     UINavigationController *meNavi = [[UINavigationController alloc] initWithRootViewController:meCtrl];
-    tabCtrl.viewControllers = @[KnowledgeNavi, skillNavi, employmentNavi, meNavi];
+    tabCtrl.viewControllers = @[knowledgeNavi, skillNavi, employmentNavi, meNavi];
+    
+    
+    knowledgeNavi.tabBarItem.title = @"知识";
+    knowledgeNavi.tabBarItem.image = [UIImage imageNamed:@"1"];
+    skillNavi.tabBarItem.title = @"技能";
+    skillNavi.tabBarItem.image = [UIImage imageNamed:@"2"];
+    employmentNavi.tabBarItem.title = @"行情";
+    employmentNavi.tabBarItem.image = [UIImage imageNamed:@"3"];
+    meNavi.tabBarItem.title = @"我的";
+    meNavi.tabBarItem.image = [UIImage imageNamed:@"4"];
+    [[UITabBar appearance] setTintColor:[UIColor colorWithRed:0.49 green:0.51 blue:0.81 alpha:1.00]];
+    
+    
     return YES;
 }
 
