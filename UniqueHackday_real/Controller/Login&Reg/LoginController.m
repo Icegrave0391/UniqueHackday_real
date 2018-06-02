@@ -70,6 +70,7 @@
     
     [[DataBase sharedDB] addEmployment:company andEmploymentNews:employNews andEmploymentWeb:employWeb andKnowledgeMajorCourse:knowledgeMajorCourse andKnowledgeMajorArticle:MajorArticle andKnowledgeCrossCourse:crossCourse andKnowledgeCrossArticle:knowledgeArticle andSkillMajorSkill:skillArticle andSkillWeb:skillWeb andSkillStrategy:skillStrategy] ;
     [[DataBase sharedDB] getUserAllInfo] ;
+    
     NSLog(@"%@",[User sharedUser]) ;
     
     [self.navigationController setNavigationBarHidden:YES animated:NO];

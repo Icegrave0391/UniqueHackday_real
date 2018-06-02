@@ -79,10 +79,21 @@ static DataBase *tool;
     __block FMResultSet * skillWebArrSet ;
     __block FMResultSet * skillStrategyArrSet ;
     
-    [[self getQueue] inDatabase:^(FMDatabase * _Nonnull db) {
-        //majorInfo
+    [[self getQueue] inTransaction:^(FMDatabase * _Nonnull db, BOOL * _Nonnull rollback) {
         majorSet = [db executeQuery:@"SELECT * FROM majorInfo"] ;
-
+        userSet = [db executeQuery:@"SELECT * FROM user"] ;
+        companySet =[db executeQuery:@"SELECT * FROM companyInfo"] ;
+                    chanceSet = [db executeQuery:@"SELECT * FROM chance order by time desc"] ;
+        articleSet = [db executeQuery:@"SELECT * FROM article where type = ? order by time desc",@"employmentNewsType"] ;
+        webArticleSet = [db executeQuery:@"SELECT * FROM article where type = ? order by time desc",@"employmentWebType"] ;
+        knowledgeMajorCourseArrSet = [db executeQuery:@"SELECT * FROM article where type = ? order by time desc",@"knowledgeMajorCourseType"] ;
+        knowledgeMajorArticleArrSet = [db executeQuery:@"SELECT * FROM article where type = ? order by time desc",@"knowledgeMajorArticleType"] ;
+        knowledgeCrossCourseArrSet = [db executeQuery:@"SELECT * FROM article where type = ? order by time desc",@"knowledgeCrossCourseType"] ;
+        knowledgeCrossArticleArrSet = [db executeQuery:@"SELECT * FROM article where type = ? order by time desc",@"knowledgeCrossArticleType"] ;
+        skillMajorSkillArrSet = [db executeQuery:@"SELECT * FROM article where type = ? order by time desc",@"majorSkillType"] ;
+        skillWebArrSet = [db executeQuery:@"SELECT * FROM article where type = ? order by time desc",@"skillWebType"] ;
+        skillStrategyArrSet = [db executeQuery:@"SELECT * FROM article where type = ? order by time desc",@"skillStrategyType"] ;
+    }] ;
         [User sharedUser].major.majorName = [majorSet stringForColumn:@"majorName"] ;
         [User sharedUser].major.majorInfo.definition = [majorSet stringForColumn:@"definition"] ;
         [User sharedUser].major.majorInfo.direction = [majorSet stringForColumn:@"direction"] ;
@@ -90,13 +101,11 @@ static DataBase *tool;
         [User sharedUser].major.majorInfo.skill = [majorSet stringForColumn:@"skill"] ;
         [User sharedUser].major.majorInfo.subject = [majorSet stringForColumn:@"subject"] ;
         //userInfo
-        userSet = [db executeQuery:@"SELECT * FROM user"] ;
         [User sharedUser].userName = [userSet stringForColumn:@"userName"] ;
         [User sharedUser].password = [userSet stringForColumn:@"password"] ;
         [User sharedUser].ID = [userSet intForColumn:@"id"] ;
         [User sharedUser].major.ID = [User sharedUser].ID ;
         //employment -> companyInfo & chanceArr
-        companySet =[db executeQuery:@"SELECT * FROM companyInfo"] ;
         while([companySet next]){
             Company * company = [[Company alloc] init] ;
             company.ID = [User sharedUser].ID ;
@@ -109,17 +118,17 @@ static DataBase *tool;
         for(Company * company in [User sharedUser].major.employment.companyArr){
             int i = 0 ;
             //company -> chanceArr
-            chanceSet = [db executeQuery:@"SELECT * FROM chance where companyid = ? order by time desc",company.companyID] ;
             while ([chanceSet next]) {
                 Chance * chance = [[Chance alloc] init] ;
                 chance.content = [chanceSet stringForColumn:@"content"] ;
                 chance.time = [chanceSet dateForColumn:@"time"] ;
-                [((Company *)[User sharedUser].major.employment.companyArr[i]).chanceArr addObject:chance] ;
+                if(company.companyID == [chanceSet intForColumn:@"companyid"]){
+                                        [((Company *)[User sharedUser].major.employment.companyArr[i]).chanceArr addObject:chance] ;
+                }
             }
             i++ ;
         }
         //employment -> newsArr
-        articleSet = [db executeQuery:@"SELECT * FROM article where type = ? order by time desc",@"employmentNewsType"] ;
         while ([articleSet next]) {
             Article * article = [[Article alloc] init] ;
             article.time = [articleSet dateForColumn:@"time"] ;
@@ -129,7 +138,6 @@ static DataBase *tool;
             [[User sharedUser].major.employment.newsArr addObject:article] ;
         }
         //employment -> webArr
-        webArticleSet = [db executeQuery:@"SELECT * FROM article where type = ? order by time desc",@"employmentWebType"] ;
         while ([webArticleSet next]) {
             Article * article = [[Article alloc] init] ;
             article.time = [webArticleSet dateForColumn:@"time"] ;
@@ -139,7 +147,6 @@ static DataBase *tool;
             [[User sharedUser].major.employment.webArr addObject:article] ;
         }
         //knowledge -> courseArr(Major
-        knowledgeMajorCourseArrSet = [db executeQuery:@"SELECT * FROM article where type = ? order by time desc",@"knowledgeMajorCourseType"] ;
         while ([knowledgeMajorCourseArrSet next]) {
             Article * article = [[Article alloc] init] ;
             article.time = [knowledgeMajorCourseArrSet dateForColumn:@"time"] ;
@@ -150,7 +157,6 @@ static DataBase *tool;
         }
 
         //knowledge -> articleArr(Major
-        knowledgeMajorArticleArrSet = [db executeQuery:@"SELECT * FROM article where type = ? order by time desc",@"knowledgeMajorArticleType"] ;
         while ([knowledgeMajorArticleArrSet next]) {
             Article * article = [[Article alloc] init] ;
             article.time = [knowledgeMajorArticleArrSet dateForColumn:@"time"] ;
@@ -160,7 +166,6 @@ static DataBase *tool;
             [[User sharedUser].major.knowledge.majorArticleArr addObject:article] ;
         }
         //knowledge -> courseArr(Cross
-        knowledgeCrossCourseArrSet = [db executeQuery:@"SELECT * FROM article where type = ? order by time desc",@"knowledgeCrossCourseType"] ;
         while ([knowledgeCrossCourseArrSet next]) {
             Article * article = [[Article alloc] init] ;
             article.time = [knowledgeCrossCourseArrSet dateForColumn:@"time"] ;
@@ -170,7 +175,6 @@ static DataBase *tool;
             [[User sharedUser].major.knowledge.crossCourseArr addObject:article] ;
         }
         //knowledge -> articleArr(Cross
-        knowledgeCrossArticleArrSet = [db executeQuery:@"SELECT * FROM article where type = ? order by time desc",@"knowledgeCrossArticleType"] ;
         while ([knowledgeCrossArticleArrSet next]) {
             Article * article = [[Article alloc] init] ;
             article.time = [knowledgeCrossArticleArrSet dateForColumn:@"time"] ;
@@ -181,7 +185,6 @@ static DataBase *tool;
         }
         
         //skill -> majorSkill
-        skillMajorSkillArrSet = [db executeQuery:@"SELECT * FROM article where type = ? order by time desc",@"majorSkillType"] ;
         while ([skillMajorSkillArrSet next]) {
             Article * article = [[Article alloc] init] ;
             article.time = [skillMajorSkillArrSet dateForColumn:@"time"] ;
@@ -191,7 +194,6 @@ static DataBase *tool;
             [[User sharedUser].major.skill.majorSkillArr addObject:article] ;
         }
         //skill -> webArr
-        skillWebArrSet = [db executeQuery:@"SELECT * FROM article where type = ? order by time desc",@"skillWebType"] ;
         while ([skillWebArrSet next]) {
             Article * article = [[Article alloc] init] ;
             article.time = [skillWebArrSet dateForColumn:@"time"] ;
@@ -201,7 +203,6 @@ static DataBase *tool;
             [[User sharedUser].major.skill.webArr addObject:article] ;
         }
         //skill -> strategyArr
-        skillStrategyArrSet = [db executeQuery:@"SELECT * FROM article where type = ? order by time desc",@"skillStrategyType"] ;
         while ([skillStrategyArrSet next]) {
             Article * article = [[Article alloc] init] ;
             article.time = [skillStrategyArrSet dateForColumn:@"time"] ;
@@ -210,7 +211,6 @@ static DataBase *tool;
             article.ID = [User sharedUser].ID ;
             [[User sharedUser].major.skill.strategyArr addObject:article] ;
         }
-    }] ;
 }
 
 - (void)addEmployment:(Company *)company
