@@ -185,6 +185,18 @@ static DataBase *tool;
     }] ;
 }
 
+- (void)addEmployment:(Company *)company
+    andEmploymentNews:(Article *)newsArticle
+     andEmploymentWeb:(Article *)webArticle
+      andKnowledgeWeb:(Article *)knoeledgeWebArticle
+   andKnowledgeCourse:(Article *)courseArticle
+  andKnowledgeArticle:(Article *)knowledgeArticle
+   andSkillMajorSkill:(Article *)majorSkillArticle
+          andSkillWeb:(Article *)skillWebArticle
+     andSkillStrategy:(Article *)strategyArticle {
+    
+}
+
 
 @end
 
