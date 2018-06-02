@@ -220,7 +220,9 @@ andKnowledgeCrossArticle:(Article *)knowledgeCrossArticle
           andSkillWeb:(Article *)skillWebArticle
      andSkillStrategy:(Article *)strategyArticle {
     
-    
+    [[self getQueue] inDatabase:^(FMDatabase * _Nonnull db) {
+        <#code#>
+    }] ;
 }
 
 
