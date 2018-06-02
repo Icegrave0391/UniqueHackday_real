@@ -16,5 +16,6 @@
 @property(nonatomic, strong)NSString * companyName ;
 
 @property(nonatomic, assign)NSInteger companyID ;
+@property(nonatomic, assign)NSInteger ID ;
 @end
 

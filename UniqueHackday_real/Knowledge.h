@@ -10,8 +10,10 @@
 
 @interface Knowledge : NSObject
 
-@property(nonatomic, strong)NSMutableArray * courseArr ;   //课程article
-@property(nonatomic, strong)NSMutableArray * articleArr ;
+@property(nonatomic, strong)NSMutableArray * majorCourseArr ;   //major课程article
+@property(nonatomic, strong)NSMutableArray * majorArticleArr ;
+@property(nonatomic, strong)NSMutableArray * crossCourseArr ;  //cross课程
+@property(nonatomic, strong)NSMutableArray * crossArticleArr ;
 
 @end
 
