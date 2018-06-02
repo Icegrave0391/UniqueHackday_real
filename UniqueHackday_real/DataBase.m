@@ -71,8 +71,10 @@ static DataBase *tool;
     __block FMResultSet * chanceSet ;
     __block FMResultSet * articleSet ;
     __block FMResultSet * webArticleSet ;
-    __block FMResultSet * knowledgeCourseArrSet ;
-    __block FMResultSet * knowledgeArticleArrSet ;
+    __block FMResultSet * knowledgeMajorCourseArrSet ;
+    __block FMResultSet * knowledgeMajorArticleArrSet ;
+    __block FMResultSet * knowledgeCrossCourseArrSet ;
+    __block FMResultSet * knowledgeCrossArticleArrSet ;
     __block FMResultSet * skillMajorSkillArrSet ;
     __block FMResultSet * skillWebArrSet ;
     __block FMResultSet * skillStrategyArrSet ;
@@ -131,27 +133,48 @@ static DataBase *tool;
             article.ID = [User sharedUser].ID ;
             [[User sharedUser].major.employment.webArr addObject:article] ;
         }
-        //knowledge -> courseArr
-        knowledgeCourseArrSet = [db executeQuery:@"SELECT * FROM article where type = ?",@"knowledgeCourseType"] ;
-        while ([knowledgeCourseArrSet next]) {
+        //knowledge -> courseArr(Major
+        knowledgeMajorCourseArrSet = [db executeQuery:@"SELECT * FROM article where type = ?",@"knowledgeMajorCourseType"] ;
+        while ([knowledgeMajorCourseArrSet next]) {
             Article * article = [[Article alloc] init] ;
-            article.time = [knowledgeCourseArrSet dateForColumn:@"time"] ;
-            article.img = [UIImage imageWithData:[knowledgeCourseArrSet dataForColumn:@"image"]] ;
-            article.content = [knowledgeCourseArrSet stringForColumn:@"content"] ;
+            article.time = [knowledgeMajorCourseArrSet dateForColumn:@"time"] ;
+            article.img = [UIImage imageWithData:[knowledgeMajorCourseArrSet dataForColumn:@"image"]] ;
+            article.content = [knowledgeMajorCourseArrSet stringForColumn:@"content"] ;
             article.ID = [User sharedUser].ID ;
-            [[User sharedUser].major.knowledge.courseArr addObject:article] ;
+            [[User sharedUser].major.knowledge.majorCourseArr addObject:article] ;
         }
 
-        //knowledge -> articleArr
-        knowledgeArticleArrSet = [db executeQuery:@"SELECT * FROM article where type = ?",@"knowledgeArticleType"] ;
-        while ([knowledgeArticleArrSet next]) {
+        //knowledge -> articleArr(Major
+        knowledgeMajorArticleArrSet = [db executeQuery:@"SELECT * FROM article where type = ?",@"knowledgeMajorArticleType"] ;
+        while ([knowledgeMajorArticleArrSet next]) {
             Article * article = [[Article alloc] init] ;
-            article.time = [knowledgeArticleArrSet dateForColumn:@"time"] ;
-            article.img = [UIImage imageWithData:[knowledgeArticleArrSet dataForColumn:@"image"]] ;
-            article.content = [knowledgeArticleArrSet stringForColumn:@"content"] ;
+            article.time = [knowledgeMajorArticleArrSet dateForColumn:@"time"] ;
+            article.img = [UIImage imageWithData:[knowledgeMajorArticleArrSet dataForColumn:@"image"]] ;
+            article.content = [knowledgeMajorArticleArrSet stringForColumn:@"content"] ;
             article.ID = [User sharedUser].ID ;
-            [[User sharedUser].major.knowledge.articleArr addObject:article] ;
+            [[User sharedUser].major.knowledge.majorArticleArr addObject:article] ;
         }
+        //knowledge -> courseArr(Cross
+        knowledgeCrossCourseArrSet = [db executeQuery:@"SELECT * FROM article where type = ?",@"knowledgeCrossCourseType"] ;
+        while ([knowledgeCrossCourseArrSet next]) {
+            Article * article = [[Article alloc] init] ;
+            article.time = [knowledgeCrossCourseArrSet dateForColumn:@"time"] ;
+            article.img = [UIImage imageWithData:[knowledgeCrossCourseArrSet dataForColumn:@"image"]] ;
+            article.content = [knowledgeCrossCourseArrSet stringForColumn:@"content"] ;
+            article.ID = [User sharedUser].ID ;
+            [[User sharedUser].major.knowledge.crossCourseArr addObject:article] ;
+        }
+        //knowledge -> articleArr(Cross
+        knowledgeCrossArticleArrSet = [db executeQuery:@"SELECT * FROM article where type = ?",@"knowledgeCrossArticleType"] ;
+        while ([knowledgeCrossArticleArrSet next]) {
+            Article * article = [[Article alloc] init] ;
+            article.time = [knowledgeCrossArticleArrSet dateForColumn:@"time"] ;
+            article.img = [UIImage imageWithData:[knowledgeCrossArticleArrSet dataForColumn:@"image"]] ;
+            article.content = [knowledgeCrossArticleArrSet stringForColumn:@"content"] ;
+            article.ID = [User sharedUser].ID ;
+            [[User sharedUser].major.knowledge.crossArticleArr addObject:article] ;
+        }
+        
         //skill -> majorSkill
         skillMajorSkillArrSet = [db executeQuery:@"SELECT * FROM article where type = ?",@"majorSkillType"] ;
         while ([skillMajorSkillArrSet next]) {
@@ -189,11 +212,14 @@ static DataBase *tool;
     andEmploymentNews:(Article *)newsArticle
      andEmploymentWeb:(Article *)webArticle
       andKnowledgeWeb:(Article *)knoeledgeWebArticle
-   andKnowledgeCourse:(Article *)courseArticle
-  andKnowledgeArticle:(Article *)knowledgeArticle
+andKnowledgeMajorCourse:(Article *)courseMajorArticle
+andKnowledgeMajorArticle:(Article *)knowledgeMajorArticle
+andKnowledgeCrossCourse:(Article *)courseCrossArticle
+andKnowledgeCrossArticle:(Article *)knowledgeCrossArticle
    andSkillMajorSkill:(Article *)majorSkillArticle
           andSkillWeb:(Article *)skillWebArticle
      andSkillStrategy:(Article *)strategyArticle {
+    
     
 }
 

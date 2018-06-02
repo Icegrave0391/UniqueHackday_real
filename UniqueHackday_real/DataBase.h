@@ -20,13 +20,17 @@
 @interface DataBase : NSObject
 
 + (instancetype)sharedDB;
+
 - (void)getUserAllInfo ;
+
 - (void)addEmployment:(Company *)company
     andEmploymentNews:(Article *)newsArticle
      andEmploymentWeb:(Article *)webArticle
       andKnowledgeWeb:(Article *)knoeledgeWebArticle
-   andKnowledgeCourse:(Article *)courseArticle
-  andKnowledgeArticle:(Article *)knowledgeArticle
+andKnowledgeMajorCourse:(Article *)courseMajorArticle
+andKnowledgeMajorArticle:(Article *)knowledgeMajorArticle
+andKnowledgeCrossCourse:(Article *)courseCrossArticle
+andKnowledgeCrossArticle:(Article *)knowledgeCrossArticle
    andSkillMajorSkill:(Article *)majorSkillArticle
           andSkillWeb:(Article *)skillWebArticle
      andSkillStrategy:(Article *)strategyArticle ;
