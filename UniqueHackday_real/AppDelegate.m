@@ -7,6 +7,10 @@
 //
 
 #import "AppDelegate.h"
+#import "KnowledgeController.h"
+#import "SkillController.h"
+#import "EmploymentController.h"
+#import "MeController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +21,27 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    [self.window makeKeyAndVisible];
+    self.window.backgroundColor = [UIColor whiteColor];
+    
+    
+    UITabBarController *tabCtrl = [[UITabBarController alloc] init];
+    self.window.rootViewController = tabCtrl;
+    
+    
+    
+    KnowledgeController *knowledgeCtrl = [[KnowledgeController alloc] init];
+    SkillController *skillCtrl = [[SkillController alloc] init];
+    EmploymentController *employmentCtrl = [[EmploymentController alloc] init];
+    MeController *meCtrl = [[MeController alloc] init];
+    
+    
+    UINavigationController *KnowledgeNavi = [[UINavigationController alloc] initWithRootViewController:knowledgeCtrl];
+    UINavigationController *skillNavi = [[UINavigationController alloc] initWithRootViewController:skillCtrl];
+    UINavigationController *employmentNavi = [[UINavigationController alloc] initWithRootViewController:employmentCtrl];
+    UINavigationController *meNavi = [[UINavigationController alloc] initWithRootViewController:meCtrl];
+    tabCtrl.viewControllers = @[KnowledgeNavi, skillNavi, employmentNavi, meNavi];
     return YES;
 }
 

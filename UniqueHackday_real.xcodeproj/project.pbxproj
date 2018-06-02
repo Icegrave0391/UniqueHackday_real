@@ -26,6 +26,14 @@
 		0872F72820C2E678005B0C21 /* Article.m in Sources */ = {isa = PBXBuildFile; fileRef = 0872F72720C2E678005B0C21 /* Article.m */; };
 		0872F72B20C2E689005B0C21 /* Company.m in Sources */ = {isa = PBXBuildFile; fileRef = 0872F72A20C2E689005B0C21 /* Company.m */; };
 		38F61CE45ADF56BFA5793A76 /* libPods-UniqueHackday_real.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 74D42B084E8DAD4FE89F9CB1 /* libPods-UniqueHackday_real.a */; };
+		E20AA43F20C2EABB00839069 /* KnowledgeController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20AA43E20C2EABB00839069 /* KnowledgeController.m */; };
+		E20AA44220C2EAF300839069 /* SkillController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20AA44120C2EAF300839069 /* SkillController.m */; };
+		E20AA44520C2EB0B00839069 /* EmploymentController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20AA44420C2EB0B00839069 /* EmploymentController.m */; };
+		E20AA44820C2EB1500839069 /* MeController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20AA44720C2EB1500839069 /* MeController.m */; };
+		E20AA44C20C2EB3F00839069 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20AA44B20C2EB3F00839069 /* LoginController.m */; };
+		E20AA44F20C2EB5500839069 /* RegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20AA44E20C2EB5500839069 /* RegisterController.m */; };
+		E20AA45220C2F80000839069 /* UIResponder+FirstResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = E20AA45120C2F80000839069 /* UIResponder+FirstResponder.m */; };
+		E20AA45620C309D500839069 /* NetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E20AA45520C309D500839069 /* NetworkTool.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +93,22 @@
 		4018CFDE32E0E7E5E0C14069 /* Pods-UniqueHackday_real.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniqueHackday_real.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UniqueHackday_real/Pods-UniqueHackday_real.debug.xcconfig"; sourceTree = "<group>"; };
 		74D42B084E8DAD4FE89F9CB1 /* libPods-UniqueHackday_real.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UniqueHackday_real.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF24F59DDB6CEDBFD1AAAD9D /* Pods-UniqueHackday_real.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniqueHackday_real.release.xcconfig"; path = "Pods/Target Support Files/Pods-UniqueHackday_real/Pods-UniqueHackday_real.release.xcconfig"; sourceTree = "<group>"; };
+		E20AA43D20C2EABB00839069 /* KnowledgeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KnowledgeController.h; sourceTree = "<group>"; };
+		E20AA43E20C2EABB00839069 /* KnowledgeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KnowledgeController.m; sourceTree = "<group>"; };
+		E20AA44020C2EAF300839069 /* SkillController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SkillController.h; sourceTree = "<group>"; };
+		E20AA44120C2EAF300839069 /* SkillController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkillController.m; sourceTree = "<group>"; };
+		E20AA44320C2EB0B00839069 /* EmploymentController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmploymentController.h; sourceTree = "<group>"; };
+		E20AA44420C2EB0B00839069 /* EmploymentController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmploymentController.m; sourceTree = "<group>"; };
+		E20AA44620C2EB1500839069 /* MeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeController.h; sourceTree = "<group>"; };
+		E20AA44720C2EB1500839069 /* MeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeController.m; sourceTree = "<group>"; };
+		E20AA44A20C2EB3F00839069 /* LoginController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
+		E20AA44B20C2EB3F00839069 /* LoginController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
+		E20AA44D20C2EB5500839069 /* RegisterController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterController.h; sourceTree = "<group>"; };
+		E20AA44E20C2EB5500839069 /* RegisterController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterController.m; sourceTree = "<group>"; };
+		E20AA45020C2F80000839069 /* UIResponder+FirstResponder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIResponder+FirstResponder.h"; sourceTree = "<group>"; };
+		E20AA45120C2F80000839069 /* UIResponder+FirstResponder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+FirstResponder.m"; sourceTree = "<group>"; };
+		E20AA45420C309D500839069 /* NetworkTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkTool.h; sourceTree = "<group>"; };
+		E20AA45520C309D500839069 /* NetworkTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkTool.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,30 +162,15 @@
 		0872F6DB20C2E484005B0C21 /* UniqueHackday_real */ = {
 			isa = PBXGroup;
 			children = (
-				0872F70E20C2E591005B0C21 /* DataBase.h */,
-				0872F70F20C2E591005B0C21 /* DataBase.m */,
-				0872F71120C2E5CC005B0C21 /* Major.h */,
-				0872F71220C2E5CC005B0C21 /* Major.m */,
-				0872F71420C2E5E4005B0C21 /* User.h */,
-				0872F71520C2E5E4005B0C21 /* User.m */,
-				0872F71720C2E601005B0C21 /* MajorInfo.h */,
-				0872F71820C2E601005B0C21 /* MajorInfo.m */,
-				0872F71A20C2E622005B0C21 /* Employment.h */,
-				0872F71B20C2E622005B0C21 /* Employment.m */,
-				0872F71D20C2E637005B0C21 /* Knowledge.h */,
-				0872F71E20C2E637005B0C21 /* Knowledge.m */,
-				0872F72020C2E64B005B0C21 /* Skill.h */,
-				0872F72120C2E64B005B0C21 /* Skill.m */,
-				0872F72320C2E668005B0C21 /* Chance.h */,
-				0872F72420C2E668005B0C21 /* Chance.m */,
-				0872F72620C2E678005B0C21 /* Article.h */,
-				0872F72720C2E678005B0C21 /* Article.m */,
-				0872F72920C2E689005B0C21 /* Company.h */,
-				0872F72A20C2E689005B0C21 /* Company.m */,
+				E20AA43A20C2E9F500839069 /* Model */,
+				E20AA43B20C2E9FC00839069 /* View */,
+				E20AA43C20C2EA0000839069 /* Controller */,
 				0872F6DC20C2E484005B0C21 /* AppDelegate.h */,
 				0872F6DD20C2E484005B0C21 /* AppDelegate.m */,
 				0872F6DF20C2E484005B0C21 /* ViewController.h */,
 				0872F6E020C2E484005B0C21 /* ViewController.m */,
+				E20AA45020C2F80000839069 /* UIResponder+FirstResponder.h */,
+				E20AA45120C2F80000839069 /* UIResponder+FirstResponder.m */,
 				0872F6E220C2E484005B0C21 /* Main.storyboard */,
 				0872F6E520C2E484005B0C21 /* Assets.xcassets */,
 				0872F6E720C2E484005B0C21 /* LaunchScreen.storyboard */,
@@ -206,6 +215,77 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E20AA43A20C2E9F500839069 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E20AA45320C309BF00839069 /* Tool */,
+				0872F71120C2E5CC005B0C21 /* Major.h */,
+				0872F71220C2E5CC005B0C21 /* Major.m */,
+				0872F71420C2E5E4005B0C21 /* User.h */,
+				0872F71520C2E5E4005B0C21 /* User.m */,
+				0872F71720C2E601005B0C21 /* MajorInfo.h */,
+				0872F71820C2E601005B0C21 /* MajorInfo.m */,
+				0872F71A20C2E622005B0C21 /* Employment.h */,
+				0872F71B20C2E622005B0C21 /* Employment.m */,
+				0872F71D20C2E637005B0C21 /* Knowledge.h */,
+				0872F71E20C2E637005B0C21 /* Knowledge.m */,
+				0872F72020C2E64B005B0C21 /* Skill.h */,
+				0872F72120C2E64B005B0C21 /* Skill.m */,
+				0872F72320C2E668005B0C21 /* Chance.h */,
+				0872F72420C2E668005B0C21 /* Chance.m */,
+				0872F72620C2E678005B0C21 /* Article.h */,
+				0872F72720C2E678005B0C21 /* Article.m */,
+				0872F72920C2E689005B0C21 /* Company.h */,
+				0872F72A20C2E689005B0C21 /* Company.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E20AA43B20C2E9FC00839069 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E20AA43C20C2EA0000839069 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E20AA44920C2EB2F00839069 /* Login&Reg */,
+				E20AA43D20C2EABB00839069 /* KnowledgeController.h */,
+				E20AA43E20C2EABB00839069 /* KnowledgeController.m */,
+				E20AA44020C2EAF300839069 /* SkillController.h */,
+				E20AA44120C2EAF300839069 /* SkillController.m */,
+				E20AA44320C2EB0B00839069 /* EmploymentController.h */,
+				E20AA44420C2EB0B00839069 /* EmploymentController.m */,
+				E20AA44620C2EB1500839069 /* MeController.h */,
+				E20AA44720C2EB1500839069 /* MeController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E20AA44920C2EB2F00839069 /* Login&Reg */ = {
+			isa = PBXGroup;
+			children = (
+				E20AA44A20C2EB3F00839069 /* LoginController.h */,
+				E20AA44B20C2EB3F00839069 /* LoginController.m */,
+				E20AA44D20C2EB5500839069 /* RegisterController.h */,
+				E20AA44E20C2EB5500839069 /* RegisterController.m */,
+			);
+			path = "Login&Reg";
+			sourceTree = "<group>";
+		};
+		E20AA45320C309BF00839069 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				0872F70E20C2E591005B0C21 /* DataBase.h */,
+				0872F70F20C2E591005B0C21 /* DataBase.m */,
+				E20AA45420C309D500839069 /* NetworkTool.h */,
+				E20AA45520C309D500839069 /* NetworkTool.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -217,6 +297,8 @@
 				0872F6D520C2E484005B0C21 /* Sources */,
 				0872F6D620C2E484005B0C21 /* Frameworks */,
 				0872F6D720C2E484005B0C21 /* Resources */,
+				8C328DA84EAB998B42636200 /* [CP] Embed Pods Frameworks */,
+				E67AFDBA2941E30A076D9CA6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -336,6 +418,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		8C328DA84EAB998B42636200 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UniqueHackday_real/Pods-UniqueHackday_real-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		AE8C6566A2EA3D72D86FC28D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -354,6 +451,21 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E67AFDBA2941E30A076D9CA6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UniqueHackday_real/Pods-UniqueHackday_real-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -361,6 +473,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E20AA44F20C2EB5500839069 /* RegisterController.m in Sources */,
+				E20AA43F20C2EABB00839069 /* KnowledgeController.m in Sources */,
+				E20AA44220C2EAF300839069 /* SkillController.m in Sources */,
 				0872F6E120C2E484005B0C21 /* ViewController.m in Sources */,
 				0872F71F20C2E637005B0C21 /* Knowledge.m in Sources */,
 				0872F72520C2E668005B0C21 /* Chance.m in Sources */,
@@ -372,8 +487,13 @@
 				0872F72820C2E678005B0C21 /* Article.m in Sources */,
 				0872F72220C2E64B005B0C21 /* Skill.m in Sources */,
 				0872F72B20C2E689005B0C21 /* Company.m in Sources */,
+				E20AA45620C309D500839069 /* NetworkTool.m in Sources */,
 				0872F6DE20C2E484005B0C21 /* AppDelegate.m in Sources */,
+				E20AA44820C2EB1500839069 /* MeController.m in Sources */,
+				E20AA45220C2F80000839069 /* UIResponder+FirstResponder.m in Sources */,
 				0872F71920C2E601005B0C21 /* MajorInfo.m in Sources */,
+				E20AA44520C2EB0B00839069 /* EmploymentController.m in Sources */,
+				E20AA44C20C2EB3F00839069 /* LoginController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -538,10 +658,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q64PWL267Z;
+				DEVELOPMENT_TEAM = 2K757B683S;
 				INFOPLIST_FILE = UniqueHackday_real/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "-.UniqueHackday-real";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hackday;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -553,10 +673,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q64PWL267Z;
+				DEVELOPMENT_TEAM = 2K757B683S;
 				INFOPLIST_FILE = UniqueHackday_real/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "-.UniqueHackday-real";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hackday;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
