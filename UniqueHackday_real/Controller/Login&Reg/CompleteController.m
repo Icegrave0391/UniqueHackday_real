@@ -8,6 +8,7 @@
 
 #import "CompleteController.h"
 #import "UIResponder+FirstResponder.h"
+#import "KnowledgeController.h"
 @interface CompleteController ()
 
 @end
@@ -59,9 +60,10 @@
     schoolField.font = [UIFont systemFontOfSize:16] ;
     [self.view addSubview:schoolField] ;
     
-    
-    
-    
+    UIButton * seguebtn = [[UIButton alloc] initWithFrame:CGRectMake(128, 505, 107, 137)] ;
+    [seguebtn setBackgroundColor:[UIColor clearColor]] ;
+    [seguebtn addTarget:self action:@selector(pushNew) forControlEvents:UIControlEventTouchUpInside] ;
+    [self.view addSubview:seguebtn] ;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -82,6 +84,11 @@
         UIView *view = responder;
         [view resignFirstResponder];
     }
+}
+
+-(void)pushNew{
+    KnowledgeController * tvc = [[KnowledgeController alloc] init] ;
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 /*
 #pragma mark - Navigation

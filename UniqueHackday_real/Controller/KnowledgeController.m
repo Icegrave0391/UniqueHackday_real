@@ -28,6 +28,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor] ;
     LoginController *loginCtrl = [[LoginController alloc] init];
     UINavigationController *loginNavi = [[UINavigationController alloc] initWithRootViewController:loginCtrl];
     

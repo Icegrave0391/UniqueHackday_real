@@ -94,7 +94,7 @@ static DataBase *tool;
         skillWebArrSet = [db executeQuery:@"SELECT * FROM article where type = ? order by time desc",@"skillWebType"] ;
         skillStrategyArrSet = [db executeQuery:@"SELECT * FROM article where type = ? order by time desc",@"skillStrategyType"] ;
     }] ;
-        [User sharedUser].major.majorName = [majorSet stringForColumn:@"majorName"] ;
+//        [User sharedUser].major.majorName = [majorSet stringForColumn:@"majorName"] ;
         [User sharedUser].major.majorInfo.definition = [majorSet stringForColumn:@"definition"] ;
         [User sharedUser].major.majorInfo.direction = [majorSet stringForColumn:@"direction"] ;
         [User sharedUser].major.majorInfo.knowledge = [majorSet stringForColumn:@"knowledge"] ;

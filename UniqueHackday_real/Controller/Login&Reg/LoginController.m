@@ -16,6 +16,7 @@
 #import "Company.h"
 #import "Article.h"
 #import "CompleteController.h"
+#import "FakeData.h"
 
 @interface LoginController ()
 
@@ -73,6 +74,9 @@
 //    [[DataBase sharedDB] getUserAllInfo] ;
 //
 //    NSLog(@"%@",[User sharedUser]) ;
+    FakeData * fake = [[FakeData alloc] init] ;
+    [fake createFakeData] ;
+    [fake getInfo] ;
     
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)]];
@@ -175,6 +179,8 @@
 - (void)didClickLogin {
     NSLog(@"click") ;
     CompleteController * tvc = [[CompleteController alloc] init] ;
+    [User sharedUser].major.majorName = @"工业设计" ;
+    [User sharedUser].ID = 1 ;
     [self.navigationController pushViewController:tvc animated:YES] ;
 }
 

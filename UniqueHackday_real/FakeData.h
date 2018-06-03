@@ -31,4 +31,5 @@
 @property(nonatomic, strong)NSMutableArray * newsArr ;  //行业新闻
 
 -(void)createFakeData ;
+-(void)getInfo ;
 @end
