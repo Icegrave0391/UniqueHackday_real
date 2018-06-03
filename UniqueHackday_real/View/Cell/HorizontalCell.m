@@ -57,7 +57,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CollectionCell *cell = (CollectionCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"cellID" forIndexPath:indexPath];
     
-    cell.backgroundColor = [UIColor yellowColor];
+    cell.backgroundColor = [UIColor whiteColor];
     
     return cell;
 }

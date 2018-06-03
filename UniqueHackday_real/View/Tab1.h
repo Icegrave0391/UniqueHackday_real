@@ -1,5 +1,5 @@
 //
-//  ArticleCell.h
+//  Tab1.h
 //  UniqueHackday_real
 //
 //  Created by Gary Lee on 2018/6/3.
@@ -8,11 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ArticleCell : UITableViewCell
-
-@property (nonatomic, strong) UILabel *title;
-@property (nonatomic, strong) UILabel *detail;
-@property (nonatomic, strong) UILabel *info;
+@interface Tab1 : UIView
 @property (nonatomic, strong) UIImageView *imgView;
+@property (nonatomic, assign) NSInteger index;
 
 @end

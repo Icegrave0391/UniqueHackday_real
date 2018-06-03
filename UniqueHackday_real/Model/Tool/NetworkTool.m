@@ -8,7 +8,19 @@
 //
 
 #import "NetworkTool.h"
+#import <AFNetworking.h>
+
+static NetworkTool *tool;
 
 @implementation NetworkTool
++ (instancetype)sharedNetTool {
+    static dispatch_once_t oncetoken;
+    dispatch_once(&oncetoken, ^{
+        tool = [[NetworkTool alloc] init];
+    });
+    return tool;
+}
+
+
 
 @end
