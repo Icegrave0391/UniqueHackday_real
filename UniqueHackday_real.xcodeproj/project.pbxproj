@@ -26,7 +26,6 @@
 		0872F72820C2E678005B0C21 /* Article.m in Sources */ = {isa = PBXBuildFile; fileRef = 0872F72720C2E678005B0C21 /* Article.m */; };
 		0872F72B20C2E689005B0C21 /* Company.m in Sources */ = {isa = PBXBuildFile; fileRef = 0872F72A20C2E689005B0C21 /* Company.m */; };
 		0872F72E20C3713B005B0C21 /* CompleteController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0872F72D20C3713B005B0C21 /* CompleteController.m */; };
-		0872F73120C37E28005B0C21 /* FakeData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0872F73020C37E28005B0C21 /* FakeData.m */; };
 		38F61CE45ADF56BFA5793A76 /* libPods-UniqueHackday_real.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 74D42B084E8DAD4FE89F9CB1 /* libPods-UniqueHackday_real.a */; };
 		E20AA43F20C2EABB00839069 /* KnowledgeController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20AA43E20C2EABB00839069 /* KnowledgeController.m */; };
 		E20AA44220C2EAF300839069 /* SkillController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20AA44120C2EAF300839069 /* SkillController.m */; };
@@ -41,7 +40,10 @@
 		E2956FDF20C332D400391708 /* HeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2956FDE20C332D400391708 /* HeaderCell.m */; };
 		E2956FE220C336B000391708 /* ArticleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2956FE120C336B000391708 /* ArticleCell.m */; };
 		E2956FE520C353DC00391708 /* TopView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2956FE420C353DC00391708 /* TopView.m */; };
-		E2956FEE20C368C100391708 /* Tab1.m in Sources */ = {isa = PBXBuildFile; fileRef = E2956FED20C368C100391708 /* Tab1.m */; };
+		E2956FF120C3726800391708 /* MeCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2956FF020C3726800391708 /* MeCellTableViewCell.m */; };
+		E2956FF420C37E3B00391708 /* Tab1.m in Sources */ = {isa = PBXBuildFile; fileRef = E2956FF320C37E3B00391708 /* Tab1.m */; };
+		E2956FF720C38AD800391708 /* Tab2.m in Sources */ = {isa = PBXBuildFile; fileRef = E2956FF620C38AD800391708 /* Tab2.m */; };
+		E2956FFA20C38B5500391708 /* Tab2Item.m in Sources */ = {isa = PBXBuildFile; fileRef = E2956FF920C38B5500391708 /* Tab2Item.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,8 +133,14 @@
 		E2956FE120C336B000391708 /* ArticleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArticleCell.m; sourceTree = "<group>"; };
 		E2956FE320C353DC00391708 /* TopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TopView.h; sourceTree = "<group>"; };
 		E2956FE420C353DC00391708 /* TopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TopView.m; sourceTree = "<group>"; };
-		E2956FEC20C368C100391708 /* Tab1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tab1.h; sourceTree = "<group>"; };
-		E2956FED20C368C100391708 /* Tab1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tab1.m; sourceTree = "<group>"; };
+		E2956FEF20C3726800391708 /* MeCellTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeCellTableViewCell.h; sourceTree = "<group>"; };
+		E2956FF020C3726800391708 /* MeCellTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeCellTableViewCell.m; sourceTree = "<group>"; };
+		E2956FF220C37E3B00391708 /* Tab1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tab1.h; sourceTree = "<group>"; };
+		E2956FF320C37E3B00391708 /* Tab1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tab1.m; sourceTree = "<group>"; };
+		E2956FF520C38AD800391708 /* Tab2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tab2.h; sourceTree = "<group>"; };
+		E2956FF620C38AD800391708 /* Tab2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tab2.m; sourceTree = "<group>"; };
+		E2956FF820C38B5500391708 /* Tab2Item.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tab2Item.h; sourceTree = "<group>"; };
+		E2956FF920C38B5500391708 /* Tab2Item.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tab2Item.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -272,8 +280,12 @@
 			children = (
 				E2956FE320C353DC00391708 /* TopView.h */,
 				E2956FE420C353DC00391708 /* TopView.m */,
-				E2956FEC20C368C100391708 /* Tab1.h */,
-				E2956FED20C368C100391708 /* Tab1.m */,
+				E2956FF220C37E3B00391708 /* Tab1.h */,
+				E2956FF320C37E3B00391708 /* Tab1.m */,
+				E2956FF820C38B5500391708 /* Tab2Item.h */,
+				E2956FF920C38B5500391708 /* Tab2Item.m */,
+				E2956FF520C38AD800391708 /* Tab2.h */,
+				E2956FF620C38AD800391708 /* Tab2.m */,
 				E20AA45720C31ED500839069 /* Cell */,
 			);
 			path = View;
@@ -330,6 +342,8 @@
 				E2956FDE20C332D400391708 /* HeaderCell.m */,
 				E2956FE020C336B000391708 /* ArticleCell.h */,
 				E2956FE120C336B000391708 /* ArticleCell.m */,
+				E2956FEF20C3726800391708 /* MeCellTableViewCell.h */,
+				E2956FF020C3726800391708 /* MeCellTableViewCell.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -524,8 +538,6 @@
 				E20AA44F20C2EB5500839069 /* RegisterController.m in Sources */,
 				E20AA43F20C2EABB00839069 /* KnowledgeController.m in Sources */,
 				E20AA44220C2EAF300839069 /* SkillController.m in Sources */,
-				E2956FEE20C368C100391708 /* Tab1.m in Sources */,
-				0872F73120C37E28005B0C21 /* FakeData.m in Sources */,
 				0872F6E120C2E484005B0C21 /* ViewController.m in Sources */,
 				0872F71F20C2E637005B0C21 /* Knowledge.m in Sources */,
 				0872F72520C2E668005B0C21 /* Chance.m in Sources */,
@@ -545,9 +557,13 @@
 				0872F6DE20C2E484005B0C21 /* AppDelegate.m in Sources */,
 				E20AA44820C2EB1500839069 /* MeController.m in Sources */,
 				E20AA45220C2F80000839069 /* UIResponder+FirstResponder.m in Sources */,
+				E2956FF120C3726800391708 /* MeCellTableViewCell.m in Sources */,
 				0872F71920C2E601005B0C21 /* MajorInfo.m in Sources */,
+				E2956FFA20C38B5500391708 /* Tab2Item.m in Sources */,
 				E2956FDC20C3277D00391708 /* HorizontalCell.m in Sources */,
 				E2956FE220C336B000391708 /* ArticleCell.m in Sources */,
+				E2956FF420C37E3B00391708 /* Tab1.m in Sources */,
+				E2956FF720C38AD800391708 /* Tab2.m in Sources */,
 				E20AA44520C2EB0B00839069 /* EmploymentController.m in Sources */,
 				E20AA44C20C2EB3F00839069 /* LoginController.m in Sources */,
 			);

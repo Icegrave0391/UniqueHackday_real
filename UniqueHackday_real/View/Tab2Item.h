@@ -1,5 +1,5 @@
 //
-//  Tab1.h
+//  Tab2Item.h
 //  UniqueHackday_real
 //
 //  Created by Gary Lee on 2018/6/3.
@@ -8,9 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface Tab1 : UIView
-
-@property (nonatomic, strong) UIImageView *imgView;
-@property (nonatomic, assign) NSInteger index;
-
+@interface Tab2Item : UICollectionViewCell
+@property (nonatomic, strong) UILabel *title;
 @end
