@@ -15,6 +15,7 @@
 #import "Chance.h"
 #import "Company.h"
 #import "Article.h"
+#import "CompleteController.h"
 
 @interface LoginController ()
 
@@ -164,15 +165,17 @@
     [self.view addSubview:imgView] ;
     UIButton * loginButton = [[UIButton alloc] initWithFrame:CGRectMake(206, 410, 129, 40)] ;
     [loginButton addTarget:self action:@selector(didClickLogin) forControlEvents:UIControlEventTouchUpInside] ;
-    
+    [self.view addSubview:loginButton] ;
     //底部第三方登录
-    UIImageView *bottomLogin = [[UIImageView alloc] initWithFrame:CGRectMake(48, 537, 280, 66)];
+    UIImageView *bottomLogin = [[UIImageView alloc] initWithFrame:CGRectMake(48, 540, 280, 62)];
     bottomLogin.image = [UIImage imageNamed:@"Other"];
     [self.view addSubview:bottomLogin];
 }
 
 - (void)didClickLogin {
-    
+    NSLog(@"click") ;
+    CompleteController * tvc = [[CompleteController alloc] init] ;
+    [self.navigationController pushViewController:tvc animated:YES] ;
 }
 
 //- (void)didClickRegister {

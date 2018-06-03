@@ -12,7 +12,7 @@
 
 @property(nonatomic, strong)NSString * content ;
 @property(nonatomic, strong)UIImage * img ; //部分有 课程部分预览图
-@property(nonatomic, strong)NSDate * time ;
+@property(nonatomic, strong)NSString * time ;
 @property(nonatomic, assign)NSInteger ID ;
 
 @end

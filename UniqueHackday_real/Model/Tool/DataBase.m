@@ -40,9 +40,9 @@ static DataBase *tool;
         //companyInfo
         NSString * companySql = @"CREATE TABLE IF NOT EXISTS 'companyInfo' ('companyid' INTEGER NOT NULL,'companyName' VARCHAR(255),'companyInfo' TEXT) ";
         //chance
-        NSString * chanceSql = @"CREATE TABLE IF NOT EXISTS 'chance' ('companyid' INTEGER NOT NULL,'content' TEXT,'time' DATETIME) ";
+        NSString * chanceSql = @"CREATE TABLE IF NOT EXISTS 'chance' ('companyid' INTEGER NOT NULL,'content' TEXT,'time' TEXT) ";
         //article
-        NSString * articleSql = @"CREATE TABLE IF NOT EXISTS 'article' ('id' INTEGER NOT NULL,'type' VARCHAR(255),'content' TEXT,'time' DATETIME,'image' BLOB) ";
+        NSString * articleSql = @"CREATE TABLE IF NOT EXISTS 'article' ('id' INTEGER NOT NULL,'type' VARCHAR(255),'content' TEXT,'time' TEXT,'image' BLOB) ";
         //user
         NSString * userSql = @"CREATE TABLE IF NOT EXISTS 'user' ('id' INTEGER NOT NULL,'username' VARCHAR(255),'password' TEXT) ";
         [db executeUpdate:majorInfoSql] ;
@@ -121,7 +121,7 @@ static DataBase *tool;
             while ([chanceSet next]) {
                 Chance * chance = [[Chance alloc] init] ;
                 chance.content = [chanceSet stringForColumn:@"content"] ;
-                chance.time = [chanceSet dateForColumn:@"time"] ;
+                chance.time = [chanceSet stringForColumn:@"time"] ;
                 if(company.companyID == [chanceSet intForColumn:@"companyid"]){
                                         [((Company *)[User sharedUser].major.employment.companyArr[i]).chanceArr addObject:chance] ;
                 }
@@ -131,7 +131,7 @@ static DataBase *tool;
         //employment -> newsArr
         while ([articleSet next]) {
             Article * article = [[Article alloc] init] ;
-            article.time = [articleSet dateForColumn:@"time"] ;
+            article.time = [articleSet stringForColumn:@"time"] ;
             article.img = [UIImage imageWithData:[articleSet dataForColumn:@"image"]] ;
             article.content = [articleSet stringForColumn:@"content"] ;
             article.ID = [User sharedUser].ID ;
@@ -140,7 +140,7 @@ static DataBase *tool;
         //employment -> webArr
         while ([webArticleSet next]) {
             Article * article = [[Article alloc] init] ;
-            article.time = [webArticleSet dateForColumn:@"time"] ;
+            article.time = [webArticleSet stringForColumn:@"time"] ;
             article.img = [UIImage imageWithData:[webArticleSet dataForColumn:@"image"]] ;
             article.content = [webArticleSet stringForColumn:@"content"] ;
             article.ID = [User sharedUser].ID ;
@@ -149,7 +149,7 @@ static DataBase *tool;
         //knowledge -> courseArr(Major
         while ([knowledgeMajorCourseArrSet next]) {
             Article * article = [[Article alloc] init] ;
-            article.time = [knowledgeMajorCourseArrSet dateForColumn:@"time"] ;
+            article.time = [knowledgeMajorCourseArrSet stringForColumn:@"time"] ;
             article.img = [UIImage imageWithData:[knowledgeMajorCourseArrSet dataForColumn:@"image"]] ;
             article.content = [knowledgeMajorCourseArrSet stringForColumn:@"content"] ;
             article.ID = [User sharedUser].ID ;
@@ -159,7 +159,7 @@ static DataBase *tool;
         //knowledge -> articleArr(Major
         while ([knowledgeMajorArticleArrSet next]) {
             Article * article = [[Article alloc] init] ;
-            article.time = [knowledgeMajorArticleArrSet dateForColumn:@"time"] ;
+            article.time = [knowledgeMajorArticleArrSet stringForColumn:@"time"] ;
             article.img = [UIImage imageWithData:[knowledgeMajorArticleArrSet dataForColumn:@"image"]] ;
             article.content = [knowledgeMajorArticleArrSet stringForColumn:@"content"] ;
             article.ID = [User sharedUser].ID ;
@@ -168,7 +168,7 @@ static DataBase *tool;
         //knowledge -> courseArr(Cross
         while ([knowledgeCrossCourseArrSet next]) {
             Article * article = [[Article alloc] init] ;
-            article.time = [knowledgeCrossCourseArrSet dateForColumn:@"time"] ;
+            article.time = [knowledgeCrossCourseArrSet stringForColumn:@"time"] ;
             article.img = [UIImage imageWithData:[knowledgeCrossCourseArrSet dataForColumn:@"image"]] ;
             article.content = [knowledgeCrossCourseArrSet stringForColumn:@"content"] ;
             article.ID = [User sharedUser].ID ;
@@ -177,7 +177,7 @@ static DataBase *tool;
         //knowledge -> articleArr(Cross
         while ([knowledgeCrossArticleArrSet next]) {
             Article * article = [[Article alloc] init] ;
-            article.time = [knowledgeCrossArticleArrSet dateForColumn:@"time"] ;
+            article.time = [knowledgeCrossArticleArrSet stringForColumn:@"time"] ;
             article.img = [UIImage imageWithData:[knowledgeCrossArticleArrSet dataForColumn:@"image"]] ;
             article.content = [knowledgeCrossArticleArrSet stringForColumn:@"content"] ;
             article.ID = [User sharedUser].ID ;
@@ -187,16 +187,16 @@ static DataBase *tool;
         //skill -> majorSkill
         while ([skillMajorSkillArrSet next]) {
             Article * article = [[Article alloc] init] ;
-            article.time = [skillMajorSkillArrSet dateForColumn:@"time"] ;
+            article.time = [skillMajorSkillArrSet stringForColumn:@"time"] ;
             article.img = [UIImage imageWithData:[skillMajorSkillArrSet dataForColumn:@"image"]] ;
             article.content = [skillMajorSkillArrSet stringForColumn:@"content"] ;
             article.ID = [User sharedUser].ID ;
             [[User sharedUser].major.skill.majorSkillArr addObject:article] ;
         }
-        //skill -> webArr
+        //skill -> webArr（ruanjian
         while ([skillWebArrSet next]) {
             Article * article = [[Article alloc] init] ;
-            article.time = [skillWebArrSet dateForColumn:@"time"] ;
+            article.time = [skillWebArrSet stringForColumn:@"time"] ;
             article.img = [UIImage imageWithData:[skillWebArrSet dataForColumn:@"image"]] ;
             article.content = [skillWebArrSet stringForColumn:@"content"] ;
             article.ID = [User sharedUser].ID ;
@@ -205,7 +205,7 @@ static DataBase *tool;
         //skill -> strategyArr
         while ([skillStrategyArrSet next]) {
             Article * article = [[Article alloc] init] ;
-            article.time = [skillStrategyArrSet dateForColumn:@"time"] ;
+            article.time = [skillStrategyArrSet stringForColumn:@"time"] ;
             article.img = [UIImage imageWithData:[skillStrategyArrSet dataForColumn:@"image"]] ;
             article.content = [skillStrategyArrSet stringForColumn:@"content"] ;
             article.ID = [User sharedUser].ID ;
@@ -216,10 +216,10 @@ static DataBase *tool;
 - (void)addEmployment:(Company *)company
     andEmploymentNews:(Article *)newsArticle
      andEmploymentWeb:(Article *)webArticle
-andKnowledgeMajorCourse:(Article *)courseMajorArticle
-andKnowledgeMajorArticle:(Article *)knowledgeMajorArticle
-andKnowledgeCrossCourse:(Article *)courseCrossArticle
-andKnowledgeCrossArticle:(Article *)knowledgeCrossArticle
+andKnowledgeMajorCourse:(Article *)courseMajorArticle             //专业 网课
+andKnowledgeMajorArticle:(Article *)knowledgeMajorArticle        //专业 文章
+andKnowledgeCrossCourse:(Article *)courseCrossArticle           //交叉 网课
+andKnowledgeCrossArticle:(Article *)knowledgeCrossArticle         //交叉 文章
    andSkillMajorSkill:(Article *)majorSkillArticle
           andSkillWeb:(Article *)skillWebArticle
      andSkillStrategy:(Article *)strategyArticle {

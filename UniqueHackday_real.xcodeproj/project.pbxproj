@@ -25,6 +25,8 @@
 		0872F72520C2E668005B0C21 /* Chance.m in Sources */ = {isa = PBXBuildFile; fileRef = 0872F72420C2E668005B0C21 /* Chance.m */; };
 		0872F72820C2E678005B0C21 /* Article.m in Sources */ = {isa = PBXBuildFile; fileRef = 0872F72720C2E678005B0C21 /* Article.m */; };
 		0872F72B20C2E689005B0C21 /* Company.m in Sources */ = {isa = PBXBuildFile; fileRef = 0872F72A20C2E689005B0C21 /* Company.m */; };
+		0872F72E20C3713B005B0C21 /* CompleteController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0872F72D20C3713B005B0C21 /* CompleteController.m */; };
+		0872F73120C37E28005B0C21 /* FakeData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0872F73020C37E28005B0C21 /* FakeData.m */; };
 		38F61CE45ADF56BFA5793A76 /* libPods-UniqueHackday_real.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 74D42B084E8DAD4FE89F9CB1 /* libPods-UniqueHackday_real.a */; };
 		E20AA43F20C2EABB00839069 /* KnowledgeController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20AA43E20C2EABB00839069 /* KnowledgeController.m */; };
 		E20AA44220C2EAF300839069 /* SkillController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20AA44120C2EAF300839069 /* SkillController.m */; };
@@ -96,6 +98,10 @@
 		0872F72720C2E678005B0C21 /* Article.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Article.m; sourceTree = "<group>"; };
 		0872F72920C2E689005B0C21 /* Company.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Company.h; sourceTree = "<group>"; };
 		0872F72A20C2E689005B0C21 /* Company.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Company.m; sourceTree = "<group>"; };
+		0872F72C20C3713B005B0C21 /* CompleteController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CompleteController.h; sourceTree = "<group>"; };
+		0872F72D20C3713B005B0C21 /* CompleteController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CompleteController.m; sourceTree = "<group>"; };
+		0872F72F20C37E28005B0C21 /* FakeData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FakeData.h; sourceTree = "<group>"; };
+		0872F73020C37E28005B0C21 /* FakeData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FakeData.m; sourceTree = "<group>"; };
 		4018CFDE32E0E7E5E0C14069 /* Pods-UniqueHackday_real.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniqueHackday_real.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UniqueHackday_real/Pods-UniqueHackday_real.debug.xcconfig"; sourceTree = "<group>"; };
 		74D42B084E8DAD4FE89F9CB1 /* libPods-UniqueHackday_real.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UniqueHackday_real.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF24F59DDB6CEDBFD1AAAD9D /* Pods-UniqueHackday_real.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniqueHackday_real.release.xcconfig"; path = "Pods/Target Support Files/Pods-UniqueHackday_real/Pods-UniqueHackday_real.release.xcconfig"; sourceTree = "<group>"; };
@@ -180,6 +186,8 @@
 		0872F6DB20C2E484005B0C21 /* UniqueHackday_real */ = {
 			isa = PBXGroup;
 			children = (
+				0872F72F20C37E28005B0C21 /* FakeData.h */,
+				0872F73020C37E28005B0C21 /* FakeData.m */,
 				E20AA43A20C2E9F500839069 /* Model */,
 				E20AA43B20C2E9FC00839069 /* View */,
 				E20AA43C20C2EA0000839069 /* Controller */,
@@ -292,6 +300,8 @@
 			children = (
 				E20AA44A20C2EB3F00839069 /* LoginController.h */,
 				E20AA44B20C2EB3F00839069 /* LoginController.m */,
+				0872F72C20C3713B005B0C21 /* CompleteController.h */,
+				0872F72D20C3713B005B0C21 /* CompleteController.m */,
 				E20AA44D20C2EB5500839069 /* RegisterController.h */,
 				E20AA44E20C2EB5500839069 /* RegisterController.m */,
 			);
@@ -515,10 +525,12 @@
 				E20AA43F20C2EABB00839069 /* KnowledgeController.m in Sources */,
 				E20AA44220C2EAF300839069 /* SkillController.m in Sources */,
 				E2956FEE20C368C100391708 /* Tab1.m in Sources */,
+				0872F73120C37E28005B0C21 /* FakeData.m in Sources */,
 				0872F6E120C2E484005B0C21 /* ViewController.m in Sources */,
 				0872F71F20C2E637005B0C21 /* Knowledge.m in Sources */,
 				0872F72520C2E668005B0C21 /* Chance.m in Sources */,
 				0872F71C20C2E622005B0C21 /* Employment.m in Sources */,
+				0872F72E20C3713B005B0C21 /* CompleteController.m in Sources */,
 				E2956FD920C322F500391708 /* CollectionCell.m in Sources */,
 				E2956FE520C353DC00391708 /* TopView.m in Sources */,
 				0872F6EC20C2E484005B0C21 /* main.m in Sources */,
