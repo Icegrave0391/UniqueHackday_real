@@ -11,7 +11,7 @@
 @implementation CollectionCell
 
 - (id)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
+    self = [super initWithFrame:frame] ;
     if (self) {
         self.imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 61)];
         [self.contentView addSubview:self.imgView];
