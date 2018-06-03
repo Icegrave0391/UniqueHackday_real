@@ -13,10 +13,11 @@
 #import "ArticleCell.h"
 #import "TopView.h"
 #import "Tab1.h"
+#import "UIResponder+FirstResponder.h"
 
 @interface KnowledgeController () <UITableViewDelegate, UITableViewDataSource>
 
-//@property (nonatomic, strong) Tab1 *tab;
+@property (nonatomic, strong) Tab1 *tab;
 
 @end
 
@@ -30,18 +31,18 @@
     [super viewDidLoad];
     LoginController *loginCtrl = [[LoginController alloc] init];
     UINavigationController *loginNavi = [[UINavigationController alloc] initWithRootViewController:loginCtrl];
-    
+    [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)]];
 //    [self presentViewController:loginNavi animated:YES completion:nil];
     
-    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height-64) style:UITableViewStylePlain];
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 74, self.view.frame.size.width, self.view.frame.size.height-64) style:UITableViewStylePlain];
     tableView.delegate = self;
     tableView.dataSource = self;
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:tableView];
-//    _tab = [[Tab1 alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 39)];
-//    tableView.tableHeaderView = _tab;
+    _tab = [[Tab1 alloc] initWithFrame:CGRectMake(2, 0, [[UIScreen mainScreen] bounds].size.width-4, 39)];
+    tableView.tableHeaderView = _tab;
     
-//    self.view addSubview:<#(nonnull UIView *)#>
+//    [self.view addSubview:_tab];
     TopView *topView = [[TopView alloc] init];
     [self.view addSubview:topView];
     // Do any additional setup after loading the view.
@@ -68,14 +69,6 @@
     return 90;
 }
 
-//-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-//{
-//    return _tab;
-//}
-//-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-//{
-//    return 39;
-//}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
@@ -103,6 +96,16 @@
         return article;
     }
 
+}
+
+//键盘收起
+- (void)hideKeyboard {
+    NSLog(@"tap gesture");
+    id responder = [UIResponder currentFirstResponder];
+    if([responder isKindOfClass:[UITextField class]] || [responder isKindOfClass:[UITextView class]]) {
+        UIView *view = responder;
+        [view resignFirstResponder];
+    }
 }
 
 /*

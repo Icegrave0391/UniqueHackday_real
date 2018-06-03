@@ -8,6 +8,7 @@
 
 #import "SkillController.h"
 #import "TopView.h"
+#import "UIResponder+FirstResponder.h"
 
 @interface SkillController ()
 
@@ -23,12 +24,25 @@
     [super viewDidLoad];
     TopView *topView = [[TopView alloc] init];
     [self.view addSubview:topView];
+    [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)]];
+    
+    UITable
     // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+//键盘收起
+- (void)hideKeyboard {
+    NSLog(@"tap gesture");
+    id responder = [UIResponder currentFirstResponder];
+    if([responder isKindOfClass:[UITextField class]] || [responder isKindOfClass:[UITextView class]]) {
+        UIView *view = responder;
+        [view resignFirstResponder];
+    }
 }
 
 /*

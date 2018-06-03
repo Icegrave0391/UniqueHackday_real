@@ -30,9 +30,9 @@
         _title.font = [UIFont systemFontOfSize:14];
         _detail.font = [UIFont systemFontOfSize:12];
         _info.font = [UIFont systemFontOfSize:10];
-        _title.tintColor = [UIColor colorWithRed:0.40 green:0.40 blue:0.40 alpha:1.00];
-        _detail.tintColor = [UIColor colorWithRed:0.40 green:0.40 blue:0.40 alpha:1.00];
-        _info.tintColor = [UIColor colorWithRed:0.56 green:0.71 blue:0.85 alpha:1.00];
+        _title.textColor = [UIColor colorWithRed:0.40 green:0.40 blue:0.40 alpha:1.00];
+        _detail.textColor = [UIColor colorWithRed:0.40 green:0.40 blue:0.40 alpha:1.00];
+        _info.textColor = [UIColor colorWithRed:0.56 green:0.71 blue:0.85 alpha:1.00];
         
         self.imgView = [[UIImageView alloc] initWithFrame:CGRectMake(290, 11, 73, 76)];
         [self.contentView addSubview:self.imgView];

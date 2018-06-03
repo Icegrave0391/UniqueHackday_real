@@ -1,5 +1,5 @@
 //
-//  Tab1.h
+//  MeCellTableViewCell.h
 //  UniqueHackday_real
 //
 //  Created by Gary Lee on 2018/6/3.
@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface Tab1 : UIView
+@interface MeCellTableViewCell : UITableViewCell
 
+@property (nonatomic, strong) UILabel *title;
 @property (nonatomic, strong) UIImageView *imgView;
-@property (nonatomic, assign) NSInteger index;
 
 @end
