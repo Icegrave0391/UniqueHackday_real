@@ -26,7 +26,6 @@
 		0872F72820C2E678005B0C21 /* Article.m in Sources */ = {isa = PBXBuildFile; fileRef = 0872F72720C2E678005B0C21 /* Article.m */; };
 		0872F72B20C2E689005B0C21 /* Company.m in Sources */ = {isa = PBXBuildFile; fileRef = 0872F72A20C2E689005B0C21 /* Company.m */; };
 		0872F72E20C3713B005B0C21 /* CompleteController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0872F72D20C3713B005B0C21 /* CompleteController.m */; };
-		0872F73120C37E28005B0C21 /* FakeData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0872F73020C37E28005B0C21 /* FakeData.m */; };
 		38F61CE45ADF56BFA5793A76 /* libPods-UniqueHackday_real.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 74D42B084E8DAD4FE89F9CB1 /* libPods-UniqueHackday_real.a */; };
 		E20AA43F20C2EABB00839069 /* KnowledgeController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20AA43E20C2EABB00839069 /* KnowledgeController.m */; };
 		E20AA44220C2EAF300839069 /* SkillController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20AA44120C2EAF300839069 /* SkillController.m */; };
