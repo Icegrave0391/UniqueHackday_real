@@ -11,12 +11,20 @@
 #import "HorizontalCell.h"
 #import "HeaderCell.h"
 #import "ArticleCell.h"
+#import "TopView.h"
+#import "Tab1.h"
 
 @interface KnowledgeController () <UITableViewDelegate, UITableViewDataSource>
+
+//@property (nonatomic, strong) Tab1 *tab;
 
 @end
 
 @implementation KnowledgeController
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,6 +38,12 @@
     tableView.dataSource = self;
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:tableView];
+//    _tab = [[Tab1 alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 39)];
+//    tableView.tableHeaderView = _tab;
+    
+//    self.view addSubview:<#(nonnull UIView *)#>
+    TopView *topView = [[TopView alloc] init];
+    [self.view addSubview:topView];
     // Do any additional setup after loading the view.
 }
 
@@ -45,15 +59,23 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return 5;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     if(indexPath.row == 1) return 150;
+    if(indexPath.row > 2) return 116;
     return 90;
 }
 
-
+//-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+//{
+//    return _tab;
+//}
+//-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+//{
+//    return 39;
+//}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {

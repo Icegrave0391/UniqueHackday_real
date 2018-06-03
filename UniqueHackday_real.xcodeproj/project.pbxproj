@@ -38,6 +38,8 @@
 		E2956FDC20C3277D00391708 /* HorizontalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2956FDB20C3277D00391708 /* HorizontalCell.m */; };
 		E2956FDF20C332D400391708 /* HeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2956FDE20C332D400391708 /* HeaderCell.m */; };
 		E2956FE220C336B000391708 /* ArticleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2956FE120C336B000391708 /* ArticleCell.m */; };
+		E2956FE520C353DC00391708 /* TopView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2956FE420C353DC00391708 /* TopView.m */; };
+		E2956FEE20C368C100391708 /* Tab1.m in Sources */ = {isa = PBXBuildFile; fileRef = E2956FED20C368C100391708 /* Tab1.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +123,10 @@
 		E2956FDE20C332D400391708 /* HeaderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeaderCell.m; sourceTree = "<group>"; };
 		E2956FE020C336B000391708 /* ArticleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArticleCell.h; sourceTree = "<group>"; };
 		E2956FE120C336B000391708 /* ArticleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArticleCell.m; sourceTree = "<group>"; };
+		E2956FE320C353DC00391708 /* TopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TopView.h; sourceTree = "<group>"; };
+		E2956FE420C353DC00391708 /* TopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TopView.m; sourceTree = "<group>"; };
+		E2956FEC20C368C100391708 /* Tab1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tab1.h; sourceTree = "<group>"; };
+		E2956FED20C368C100391708 /* Tab1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tab1.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,6 +262,10 @@
 		E20AA43B20C2E9FC00839069 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E2956FE320C353DC00391708 /* TopView.h */,
+				E2956FE420C353DC00391708 /* TopView.m */,
+				E2956FEC20C368C100391708 /* Tab1.h */,
+				E2956FED20C368C100391708 /* Tab1.m */,
 				E20AA45720C31ED500839069 /* Cell */,
 			);
 			path = View;
@@ -504,11 +514,13 @@
 				E20AA44F20C2EB5500839069 /* RegisterController.m in Sources */,
 				E20AA43F20C2EABB00839069 /* KnowledgeController.m in Sources */,
 				E20AA44220C2EAF300839069 /* SkillController.m in Sources */,
+				E2956FEE20C368C100391708 /* Tab1.m in Sources */,
 				0872F6E120C2E484005B0C21 /* ViewController.m in Sources */,
 				0872F71F20C2E637005B0C21 /* Knowledge.m in Sources */,
 				0872F72520C2E668005B0C21 /* Chance.m in Sources */,
 				0872F71C20C2E622005B0C21 /* Employment.m in Sources */,
 				E2956FD920C322F500391708 /* CollectionCell.m in Sources */,
+				E2956FE520C353DC00391708 /* TopView.m in Sources */,
 				0872F6EC20C2E484005B0C21 /* main.m in Sources */,
 				0872F71620C2E5E4005B0C21 /* User.m in Sources */,
 				0872F71320C2E5CC005B0C21 /* Major.m in Sources */,

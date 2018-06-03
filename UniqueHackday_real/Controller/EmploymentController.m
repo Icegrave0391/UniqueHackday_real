@@ -7,6 +7,7 @@
 //
 
 #import "EmploymentController.h"
+#import "TopView.h"
 
 @interface EmploymentController ()
 
@@ -14,8 +15,15 @@
 
 @implementation EmploymentController
 
+- (void)viewWillAppear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    TopView *topView = [[TopView alloc] init];
+    [self.view addSubview:topView];
+    self.view.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view.
 }
 
