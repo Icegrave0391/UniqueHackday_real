@@ -23,7 +23,7 @@
     LoginController *loginCtrl = [[LoginController alloc] init];
     UINavigationController *loginNavi = [[UINavigationController alloc] initWithRootViewController:loginCtrl];
     
-//    [self presentViewController:loginNavi animated:YES completion:nil];
+    [self presentViewController:loginNavi animated:YES completion:nil];
     
     UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height-64) style:UITableViewStylePlain];
     tableView.delegate = self;

@@ -10,4 +10,8 @@
 
 @interface LoginController : UIViewController
 
+@property(nonatomic, strong)UIImageView * eyeView ;
+
+@property(nonatomic, strong)UITextField * usernameField ;
+@property(nonatomic, strong)UITextField * passwordField ;
 @end
