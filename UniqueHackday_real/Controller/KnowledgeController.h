@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Tab1.h"
 
-@interface KnowledgeController : UIViewController
+@interface KnowledgeController : UIViewController 
 
 @end

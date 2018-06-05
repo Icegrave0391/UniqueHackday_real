@@ -12,7 +12,8 @@
 #import "HeaderCell.h"
 #import "UIResponder+FirstResponder.h"
 #import "ArticleCell.h"
-
+#import "Article.h"
+#import "User.h"
 @interface EmploymentController () <UITableViewDelegate, UITableViewDataSource>
 
 @end
@@ -44,7 +45,8 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 7;
+    NSArray * arr =[User sharedUser].major.employment.newsArr;
+    return [User sharedUser].major.skill.majorSkillArr.count+5;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
@@ -88,6 +90,9 @@
         if (!article) {
             article = [[ArticleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
         }
+        article.title.text = ((Article *)[User sharedUser].major.skill.majorSkillArr[indexPath.row-5]).time;
+        article.detail.text =((Article *)[User sharedUser].major.skill.majorSkillArr[indexPath.row-5]).content ;
+        article.imgView.image = ((Article *)[User sharedUser].major.skill.majorSkillArr[indexPath.row-5]).img ;
         return article;
     }
     

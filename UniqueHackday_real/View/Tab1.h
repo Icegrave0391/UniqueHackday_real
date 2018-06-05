@@ -12,5 +12,9 @@
 
 @property (nonatomic, strong) UIImageView *imgView;
 @property (nonatomic, assign) NSInteger index;
+@property (nonatomic, weak) id delegate;
 
+@end
+@protocol ClickBtn
+- (void)didClickBtn;
 @end

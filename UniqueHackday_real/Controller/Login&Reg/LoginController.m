@@ -76,8 +76,10 @@
 //    NSLog(@"%@",[User sharedUser]) ;
     FakeData * fake = [[FakeData alloc] init] ;
     [fake createFakeData] ;
-    [fake getInfo] ;
     
+    [fake getInfo] ;
+    User *u = [User sharedUser];
+    [[DataBase sharedDB] getUserAllInfo];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)]];
 //    UIImageView *back = [[UIImageView alloc] initWithFrame:self.view.frame];
@@ -181,7 +183,10 @@
     CompleteController * tvc = [[CompleteController alloc] init] ;
     [User sharedUser].major.majorName = @"工业设计" ;
     [User sharedUser].ID = 1 ;
+    [User sharedUser].userName = _usernameField.text;
     [self.navigationController pushViewController:tvc animated:YES] ;
+    
+    [[NSUserDefaults standardUserDefaults] setValue:[User sharedUser].userName forKey:@"recent"];
 }
 
 //- (void)didClickRegister {

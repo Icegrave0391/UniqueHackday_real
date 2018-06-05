@@ -21,5 +21,12 @@ static User *user ;
     return user;
 }
 
+- (Major *)major{
+    if(!_major){
+        _major = [[Major alloc] init] ;
+    }
+    return _major ;
+}
+
 @end
 

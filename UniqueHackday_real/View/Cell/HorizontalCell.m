@@ -7,6 +7,8 @@
 //
 
 #import "HorizontalCell.h"
+#import "User.h"
+#import "Article.h"
 #import "CollectionCell.h"
 
 @implementation HorizontalCell 
@@ -36,7 +38,7 @@
 
 //每个section的item个数
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 11;
+    return [User sharedUser].major.knowledge.majorCourseArr.count;
 }
 
 //设置每个item的尺寸
@@ -56,7 +58,9 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CollectionCell *cell = (CollectionCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"cellID" forIndexPath:indexPath];
-    
+    cell.imgView.image = ((Article *)([User sharedUser].major.knowledge.majorCourseArr[indexPath.row])).img;
+    cell.title.text = ((Article *)([User sharedUser].major.knowledge.majorCourseArr[indexPath.row])).time;
+    cell.detail.text = ((Article *)([User sharedUser].major.knowledge.majorCourseArr[indexPath.row])).content;
     cell.backgroundColor = [UIColor whiteColor];
     
     return cell;

@@ -94,7 +94,7 @@ static DataBase *tool;
         skillWebArrSet = [db executeQuery:@"SELECT * FROM article where type = ? order by time desc",@"skillWebType"] ;
         skillStrategyArrSet = [db executeQuery:@"SELECT * FROM article where type = ? order by time desc",@"skillStrategyType"] ;
     }] ;
-//        [User sharedUser].major.majorName = [majorSet stringForColumn:@"majorName"] ;
+        [User sharedUser].major.majorName = [majorSet stringForColumn:@"majorName"] ;
         [User sharedUser].major.majorInfo.definition = [majorSet stringForColumn:@"definition"] ;
         [User sharedUser].major.majorInfo.direction = [majorSet stringForColumn:@"direction"] ;
         [User sharedUser].major.majorInfo.knowledge = [majorSet stringForColumn:@"knowledge"] ;
@@ -144,8 +144,10 @@ static DataBase *tool;
             article.img = [UIImage imageWithData:[webArticleSet dataForColumn:@"image"]] ;
             article.content = [webArticleSet stringForColumn:@"content"] ;
             article.ID = [User sharedUser].ID ;
+            NSLog(@"%@,%@",article, [User sharedUser].major.employment.webArr);
             [[User sharedUser].major.employment.webArr addObject:article] ;
         }
+    NSLog(@"%@", [User sharedUser].major);
         //knowledge -> courseArr(Major
         while ([knowledgeMajorCourseArrSet next]) {
             Article * article = [[Article alloc] init] ;

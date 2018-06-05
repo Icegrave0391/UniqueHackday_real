@@ -26,7 +26,7 @@
     [self.view addSubview:tableView];
     
     
-    UILabel *majorLable = [[UILabel alloc] initWithFrame:CGRectMake(16, 44, 145, 50)];
+    UILabel *majorLable = [[UILabel alloc] initWithFrame:CGRectMake(16, 44, 180, 50)];
     majorLable.font = [UIFont systemFontOfSize:36];
     majorLable.text = [User sharedUser].major.majorName;
     UILabel *click = [[UILabel alloc] initWithFrame:CGRectMake(16, 94, 160, 25)];

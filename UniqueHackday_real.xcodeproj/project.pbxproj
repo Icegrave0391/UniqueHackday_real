@@ -44,6 +44,7 @@
 		E2956FF420C37E3B00391708 /* Tab1.m in Sources */ = {isa = PBXBuildFile; fileRef = E2956FF320C37E3B00391708 /* Tab1.m */; };
 		E2956FF720C38AD800391708 /* Tab2.m in Sources */ = {isa = PBXBuildFile; fileRef = E2956FF620C38AD800391708 /* Tab2.m */; };
 		E2956FFA20C38B5500391708 /* Tab2Item.m in Sources */ = {isa = PBXBuildFile; fileRef = E2956FF920C38B5500391708 /* Tab2Item.m */; };
+		E2956FFB20C39ABF00391708 /* FakeData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0872F73020C37E28005B0C21 /* FakeData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -557,6 +558,7 @@
 				0872F6DE20C2E484005B0C21 /* AppDelegate.m in Sources */,
 				E20AA44820C2EB1500839069 /* MeController.m in Sources */,
 				E20AA45220C2F80000839069 /* UIResponder+FirstResponder.m in Sources */,
+				E2956FFB20C39ABF00391708 /* FakeData.m in Sources */,
 				E2956FF120C3726800391708 /* MeCellTableViewCell.m in Sources */,
 				0872F71920C2E601005B0C21 /* MajorInfo.m in Sources */,
 				E2956FFA20C38B5500391708 /* Tab2Item.m in Sources */,

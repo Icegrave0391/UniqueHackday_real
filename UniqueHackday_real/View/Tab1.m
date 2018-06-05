@@ -42,6 +42,8 @@
         _imgView.image = [UIImage imageNamed:@"tab2"];
         NSLog(@"click2");
     }
+//    [self.delegate didClickBtn];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"update" object:nil] ;
 }
 
 

@@ -10,7 +10,24 @@
 
 @implementation Major
 
+- (Employment *)employment {
+    if(!_employment) {
+        _employment = [[Employment alloc] init];
+    }
+    return _employment;
+}
 
-
+- (Knowledge *)knowledge{
+    if(!_knowledge){
+        _knowledge = [[Knowledge alloc] init] ;
+    }
+    return _knowledge ;
+}
+-(Skill *)skill{
+    if(!_skill){
+        _skill = [[Skill alloc] init] ;
+    }
+    return _skill ;
+}
 @end
 
